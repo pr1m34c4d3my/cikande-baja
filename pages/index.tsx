@@ -32,6 +32,7 @@ const QUERY = gql`
     categories {
       id
       categoryTitle
+      categorySlug
     }
     sliders {
       id
@@ -108,7 +109,11 @@ const Home: NextPage = ({ categories, sliders, products }: any) => {
               >
                 <CategoryMenu
                   categoryList={[
-                    { id: category.id, title: category.categoryTitle },
+                    {
+                      id: category.id,
+                      title: category.categoryTitle,
+                      link: category.categorySlug,
+                    },
                   ]}
                 />
               </li>

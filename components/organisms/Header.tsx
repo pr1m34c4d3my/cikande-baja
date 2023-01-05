@@ -5,6 +5,7 @@ import TopMenu from "../molecules/TopMenu";
 type ListKey = {
   id: number;
   title: string;
+  link: string;
 };
 
 type Props = {
@@ -18,7 +19,9 @@ const Header = ({ categories }: Props) => {
       {categories.map((category: any, index: number) => (
         <CategoryMenu
           key={index}
-          categoryList={[{ id: category.id, title: category.title }]}
+          categoryList={[
+            { id: category.id, title: category.title, link: category.link },
+          ]}
         />
       ))}
     </>

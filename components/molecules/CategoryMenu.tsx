@@ -4,6 +4,7 @@ import React from "react";
 type ListKey = {
   title: string;
   id: number;
+  link: string;
 };
 
 type Props = {
@@ -15,7 +16,7 @@ const CategoryMenu = ({ categoryList }: Props) => {
     <>
       {categoryList.map((v) => {
         return (
-          <Link href="#" key={v.id}>
+          <Link href={/category/ + v.link} key={v.id}>
             {v.title}
           </Link>
         );
