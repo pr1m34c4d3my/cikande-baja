@@ -1,10 +1,13 @@
 import { gql, GraphQLClient } from "graphql-request";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import CategoryMenu from "../../components/molecules/CategoryMenu";
 import MainNavigation from "../../components/molecules/MainNavigation";
+import ProductCard from "../../components/molecules/ProductCard";
 import TopMenu from "../../components/molecules/TopMenu";
+import Header from "../../components/organisms/Header";
 
 type Props = {};
 
@@ -25,7 +28,7 @@ const ALL = gql`
         url
       }
     }
-    products(first: 6) {
+    products(first: 4) {
       productPhoto1 {
         url
       }
@@ -114,12 +117,13 @@ export async function getStaticProps({ params }: any) {
     props: {
       categories,
       product,
+      products,
     },
     revalidate: 10,
   };
 }
 
-const ProductPost = ({ categories, product }: any) => {
+const ProductPost = ({ categories, product, products }: any) => {
   return (
     <>
       <Head>
@@ -160,16 +164,123 @@ const ProductPost = ({ categories, product }: any) => {
 
       {/* HEADER end */}
 
-      <div className="flex flex-row max-w-[1170px] mx-auto justify-between">
-        <div>
-          <Image
-            src={product.productPhoto1.url}
-            alt="#"
-            width={320}
-            height={250}
-          ></Image>
+      <div className="flex flex-row max-w-[1170px] my-5 mx-auto justify-between">
+        <nav>
+          <ul className="flex gap-2">
+            <Link href="/">
+              <li className="text-faded hover:text-black">
+                Homepage <span className="text-faded hover:text-faded">/</span>{" "}
+              </li>
+            </Link>
+            <Link href={/category/ + product.category.categorySlug}>
+              <li>{product.category.categoryTitle + " " + "/" + " "}</li>
+            </Link>
+            <Link href={product.productSlug}>
+              <li>{product.productTitle}</li>
+            </Link>
+          </ul>
+        </nav>
+      </div>
+
+      <div className="flex flex-row max-w-[1170px] gap-10 my-5 mx-auto justify-center">
+        <div className="flex flex-col w-6/12">
+          <figure>
+            <Image
+              src={product.productPhoto1.url}
+              alt="#"
+              width={569}
+              height={436}
+            />
+          </figure>
         </div>
-        <div>Detail</div>
+        <div className="flex flex-col gap-5 w-6/12">
+          <h1 className="text-[32px] font-bold">{product.productTitle}</h1>
+          <p>{product.productDescription}</p>
+          <ul className="mt-10 flex flex-col">
+            <li className="text-faded">
+              Kategori:{" "}
+              <span className="text-black ml-5">
+                {product.category.categoryTitle}
+              </span>{" "}
+            </li>
+            <li className="text-faded">
+              Pengiriman:{" "}
+              <span className="text-black ml-5">{product.deliveryDate}</span>{" "}
+            </li>
+            <li className="text-faded">
+              Area:{" "}
+              <span className="text-black ml-5">{product.deliveryArea}</span>{" "}
+            </li>
+          </ul>
+          <button className="w-[140px] h-[50px] bg-main rounded-xl text-white font-bold mt-5">
+            Beli Produk
+          </button>
+          <div className="mt-5">
+            <h2 className="text-[28px] font-bold">Deskripsi</h2>
+            <div className="bg-main w-[200px] h-[2px]"></div>
+          </div>
+          <div>
+            <span
+              className="flex flex-col gap-3"
+              dangerouslySetInnerHTML={{
+                __html: product.fungsiDanPengukuran.html,
+              }}
+            ></span>
+          </div>
+          <table>
+            <thead className=" border-b-2">
+              <td className="py-2">Tipe</td>
+              <td className="py-2">Ukuran</td>
+              <td className="py-2">Detail</td>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="py-5">{product.productType}</td>
+                <td className="py-5">{product.productSize}</td>
+                <td className="py-5">{product.productDetail}</td>
+              </tr>
+              <tr>
+                <td className="py-5">{product.productType}</td>
+                <td className="py-5">{product.productSize}</td>
+                <td className="py-5">{product.productDetail}</td>
+              </tr>
+              <tr>
+                <td className="py-5">{product.productType}</td>
+                <td className="py-5">{product.productSize}</td>
+                <td className="py-5">{product.productDetail}</td>
+              </tr>
+              <tr>
+                <td className="py-5">{product.productType}</td>
+                <td className="py-5">{product.productSize}</td>
+                <td className="py-5">{product.productDetail}</td>
+              </tr>
+              <tr>
+                <td className="py-5">{product.productType}</td>
+                <td className="py-5">{product.productSize}</td>
+                <td className="py-5">{product.productDetail}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div className="flex justify-between max-w-[1170px] my-5 mx-auto font-bold">
+        <h3>Produk Lainnya</h3>
+        <Link href="/product">
+          <h3>Lihat Lebih Banyak</h3>
+        </Link>
+      </div>
+
+      <div className="flex max-w-[1170px] mx-auto justify-between">
+        {products.map((product: any, index: number) => (
+          <ProductCard
+            key={index}
+            productTitle={product.productTitle}
+            homeDescription={product.homeDescription}
+            productSlug={product.productSlug}
+            productPhoto1={product.productPhoto1}
+          />
+        ))}
       </div>
     </>
   );

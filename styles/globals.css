@@ -4,6 +4,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
 @layer components {
   .swiper-button-prev:after {
     color: black !important;

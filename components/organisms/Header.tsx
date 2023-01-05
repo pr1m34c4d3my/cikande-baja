@@ -16,14 +16,16 @@ const Header = ({ categories }: Props) => {
   return (
     <>
       <TopMenu />
-      {categories.map((category: any, index: number) => (
-        <CategoryMenu
-          key={index}
-          categoryList={[
-            { id: category.id, title: category.title, link: category.link },
-          ]}
-        />
-      ))}
+      {categories
+        ? categories.map((category: any, index: number) => (
+            <CategoryMenu
+              key={index}
+              categoryList={[
+                { id: category.id, title: category.title, link: category.link },
+              ]}
+            />
+          ))
+        : undefined}
     </>
   );
 };
