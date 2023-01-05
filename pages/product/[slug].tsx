@@ -8,6 +8,22 @@ import MainNavigation from "../../components/molecules/MainNavigation";
 import ProductCard from "../../components/molecules/ProductCard";
 import TopMenu from "../../components/molecules/TopMenu";
 import Header from "../../components/organisms/Header";
+import { Swiper, SwiperSlide } from "swiper/react";
+import SwiperCore, {
+  Autoplay,
+  Navigation,
+  Pagination,
+  Scrollbar,
+  A11y,
+} from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import ProductSlider from "../../components/molecules/ProductSlider";
+import Footer from "../../components/organisms/Footer";
 
 type Props = {};
 
@@ -182,8 +198,8 @@ const ProductPost = ({ categories, product, products }: any) => {
         </nav>
       </div>
 
-      <div className="flex flex-row max-w-[1170px] gap-10 my-5 mx-auto justify-center">
-        <div className="flex flex-col w-6/12">
+      <div className="flex flex-col lg:flex-row w-full lg:max-w-[1170px] gap-10 my-5 mx-auto justify-center">
+        <div className="flex flex-col lg:w-6/12">
           <figure>
             <Image
               src={product.productPhoto1.url}
@@ -193,7 +209,7 @@ const ProductPost = ({ categories, product, products }: any) => {
             />
           </figure>
         </div>
-        <div className="flex flex-col gap-5 w-6/12">
+        <div className="flex flex-col gap-5 p-2 lg:w-6/12 lg:p-0">
           <h1 className="text-[32px] font-bold">{product.productTitle}</h1>
           <p>{product.productDescription}</p>
           <ul className="mt-10 flex flex-col">
@@ -212,7 +228,7 @@ const ProductPost = ({ categories, product, products }: any) => {
               <span className="text-black ml-5">{product.deliveryArea}</span>{" "}
             </li>
           </ul>
-          <button className="w-[140px] h-[50px] bg-main rounded-xl text-white font-bold mt-5">
+          <button className="w-[140px] h-[50px] bg-main rounded-xl hover:bg-white hover:scale-110 hover:text-main transition-all text-white font-bold mt-5">
             Beli Produk
           </button>
           <div className="mt-5">
@@ -229,9 +245,11 @@ const ProductPost = ({ categories, product, products }: any) => {
           </div>
           <table>
             <thead className=" border-b-2">
-              <td className="py-2">Tipe</td>
-              <td className="py-2">Ukuran</td>
-              <td className="py-2">Detail</td>
+              <tr>
+                <td className="py-2">Tipe</td>
+                <td className="py-2">Ukuran</td>
+                <td className="py-2">Detail</td>
+              </tr>
             </thead>
             <tbody>
               <tr>
@@ -264,14 +282,40 @@ const ProductPost = ({ categories, product, products }: any) => {
         </div>
       </div>
 
-      <div className="flex justify-between max-w-[1170px] my-5 mx-auto font-bold">
+      <div className="flex justify-between max-w-[1170px] lg:p-0 p-2 my-5 mx-auto font-bold">
         <h3>Produk Lainnya</h3>
         <Link href="/product">
           <h3>Lihat Lebih Banyak</h3>
         </Link>
       </div>
 
-      <div className="flex max-w-[1170px] mx-auto justify-between">
+      <div className="max-w-[1170px] mx-auto">
+        <Swiper
+          slidesPerView={1}
+          autoplay={{
+            delay: 1000,
+          }}
+          loop={true}
+          pagination={{ clickable: true }}
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+          className="flex gap-5 lg:hidden"
+        >
+          {products.map((product: any, index: number) => (
+            <SwiperSlide key={index}>
+              <ProductSlider
+                key={index}
+                productTitle={product.productTitle}
+                homeDescription={product.homeDescription}
+                productSlug={product.productSlug}
+                productPhoto1={product.productPhoto1}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      <div className="hidden lg:flex max-w-[1170px] mx-auto justify-between">
         {products.map((product: any, index: number) => (
           <ProductCard
             key={index}
@@ -282,6 +326,7 @@ const ProductPost = ({ categories, product, products }: any) => {
           />
         ))}
       </div>
+      <Footer />
     </>
   );
 };
