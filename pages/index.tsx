@@ -22,6 +22,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import ProductCard from "../components/molecules/ProductCard";
+import Footer from "../components/organisms/Footer";
 
 const graphcms = new GraphQLClient(
   "https://api-ap-southeast-2.hygraph.com/v2/clavgu89u2wfb01t4dyh4grkz/master"
@@ -176,6 +177,7 @@ const Home: NextPage = ({ categories, sliders, products }: any) => {
           ))}
         </div>
       </section>
+      <Footer />
     </>
   );
 };
