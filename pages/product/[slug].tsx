@@ -228,9 +228,11 @@ const ProductPost = ({ categories, product, products }: any) => {
               <span className="text-black ml-5">{product.deliveryArea}</span>{" "}
             </li>
           </ul>
-          <button className="w-[140px] h-[50px] bg-main rounded-xl hover:bg-white hover:scale-110 hover:text-main transition-all text-white font-bold mt-5">
-            Beli Produk
-          </button>
+          <Link href="https://wa.me/6282122920950" target="_blank">
+            <button className="w-[140px] h-[50px] bg-main rounded-xl hover:bg-white hover:scale-110 hover:text-main transition-all text-white font-bold mt-5">
+              Beli Produk
+            </button>
+          </Link>
           <div className="mt-5">
             <h2 className="text-[28px] font-bold">Deskripsi</h2>
             <div className="bg-main w-[200px] h-[2px]"></div>
@@ -326,7 +328,10 @@ const ProductPost = ({ categories, product, products }: any) => {
           />
         ))}
       </div>
-      <Footer />
+
+      <div className="bg-[#575757]">
+        <Footer />
+      </div>
     </>
   );
 };
