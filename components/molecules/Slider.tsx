@@ -12,7 +12,7 @@ type Props = {
 
 const Slider = ({ sliderImage }: any) => {
   return (
-    <figure className="rounded-2xl max-w-[1170px] lg:h-[450px] h-[200px] my-2 mx-auto lg:my-12 overflow-hidden relative">
+    <figure className="rounded-2xl max-w-[1170px] shadow-lg lg:h-[450px] h-[200px] my-2 mx-auto lg:my-12 overflow-hidden relative">
       <Image
         className="object-fit w-full h-full mr-5"
         priority
