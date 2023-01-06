@@ -177,7 +177,9 @@ const Home: NextPage = ({ categories, sliders, products }: any) => {
           ))}
         </div>
       </section>
-      <Footer />
+      <div className="bg-[#575757]">
+        <Footer />
+      </div>
     </>
   );
 };
