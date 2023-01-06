@@ -44,7 +44,7 @@ const ALL = gql`
         url
       }
     }
-    products(first: 4) {
+    products(first: 10) {
       productPhoto1 {
         url
       }
@@ -106,7 +106,7 @@ const QUERY = gql`
   }
 `;
 
-const SLUGLIST = gql`
+const SLUGLIST: string = gql`
   {
     products {
       productSlug
@@ -125,9 +125,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: any) {
-  const slug = params.slug;
-  const data = await graphcms.request(QUERY, { slug });
-  const product = data.product;
+  const slug: string = params.slug;
+  const data: any = await graphcms.request(QUERY, { slug });
+  const product: string = data.product;
   const { categories, products, sliders } = await graphcms.request(ALL);
   return {
     props: {
@@ -291,7 +291,7 @@ const ProductPost = ({ categories, product, products }: any) => {
         </Link>
       </div>
 
-      <div className="max-w-[1170px] mx-auto">
+      <div className="w-full p-2">
         <Swiper
           slidesPerView={1}
           autoplay={{
@@ -301,7 +301,7 @@ const ProductPost = ({ categories, product, products }: any) => {
           pagination={{ clickable: true }}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
-          className="flex gap-5 lg:hidden"
+          className=" flex gap-5 lg:hidden "
         >
           {products.map((product: any, index: number) => (
             <SwiperSlide key={index}>
@@ -317,16 +317,31 @@ const ProductPost = ({ categories, product, products }: any) => {
         </Swiper>
       </div>
 
-      <div className="hidden lg:flex max-w-[1170px] mx-auto justify-between">
-        {products.map((product: any, index: number) => (
-          <ProductCard
-            key={index}
-            productTitle={product.productTitle}
-            homeDescription={product.homeDescription}
-            productSlug={product.productSlug}
-            productPhoto1={product.productPhoto1}
-          />
-        ))}
+      <div className="hidden lg:flex w-full justify-center">
+        <Swiper
+          slidesPerView={5}
+          autoplay={{
+            delay: 2000,
+          }}
+          navigation
+          loop={true}
+          pagination={{ clickable: true }}
+          onSlideChange={() => console.log("slide change")}
+          onSwiper={(swiper) => console.log(swiper)}
+          className="max-w-[1366px]"
+        >
+          {products.map((product: any, index: number) => (
+            <SwiperSlide key={index}>
+              <ProductCard
+                key={index}
+                productTitle={product.productTitle}
+                homeDescription={product.homeDescription}
+                productSlug={product.productSlug}
+                productPhoto1={product.productPhoto1}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
       <div className="bg-[#575757]">

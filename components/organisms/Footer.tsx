@@ -90,22 +90,34 @@ const Footer = () => {
           <h2 className="text-[17px] font-bold text-white">Sosial Media</h2>
 
           <ul className=" text-white flex flex-col gap-2 text-[14px] items-start">
-            <Link href="/">
+            <Link
+              target="_blank"
+              href="https://www.instagram.com/cikande_indobaja/?hl=en"
+            >
               <li className="hover:text-secondary hover:scale-105 transition-all">
                 <p>Instagram</p>
               </li>
             </Link>
-            <Link href="/">
+            <Link
+              target="_blank"
+              href="https://www.facebook.com/Cikande-indobaja-mandiri-100490618805256/"
+            >
               <li className="hover:text-secondary hover:scale-105 transition-all">
                 <p>Facebook</p>
               </li>
             </Link>
-            <Link href="/">
+            <Link
+              target="_blank"
+              href="https://www.tiktok.com/@cikandeindobajamandiri"
+            >
               <li className="hover:text-secondary hover:scale-105 transition-all">
                 <p>TikTok</p>
               </li>
             </Link>
-            <Link href="/">
+            <Link
+              target="_blank"
+              href="https://www.youtube.com/@pt.cikandeindobajamandiri2866"
+            >
               <li className="hover:text-secondary hover:scale-105 transition-all">
                 <p>Youtube</p>
               </li>

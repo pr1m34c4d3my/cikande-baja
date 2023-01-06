@@ -23,6 +23,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import ProductCard from "../components/molecules/ProductCard";
 import Footer from "../components/organisms/Footer";
+import Teams from "../components/molecules/Teams";
 
 const graphcms = new GraphQLClient(
   "https://api-ap-southeast-2.hygraph.com/v2/clavgu89u2wfb01t4dyh4grkz/master"
@@ -85,8 +86,9 @@ export async function getStaticProps() {
 
 const Home: NextPage = ({ categories, sliders, products }: any) => {
   SwiperCore.use([Autoplay, Navigation, Pagination, Scrollbar, A11y]);
+
   return (
-    <div className="bg-mainBg">
+    <div>
       <Head>
         <title>Cikande Indobaja Mandiri | Home</title>
         <link rel="icon" href="/favicon.ico" />
@@ -179,6 +181,9 @@ const Home: NextPage = ({ categories, sliders, products }: any) => {
           ))}
         </div>
       </section>
+
+      <Teams />
+
       <div className="bg-[#575757]">
         <Footer />
       </div>

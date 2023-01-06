@@ -11,7 +11,7 @@ const ProductSlider = ({
   productSlug,
 }: any) => {
   return (
-    <div className="max-full h-[360px] rounded-2xl flex flex-col hover:scale-110 shadow-lg hover:shadow-2xl ease-out duration-200 p-3 justify-center overflow-hidden border-[#D1D1D1] border-[1px]">
+    <div className="max-full h-[400px] rounded-2xl flex flex-col hover:scale-110 shadow-lg hover:shadow-2xl ease-out duration-200 p-3 justify-center overflow-hidden border-[#D1D1D1] border-[1px]">
       <div className="flex flex-col justify-center items-center">
         <div className="w-[230px] mt-2 h-[220px] rounded-2xl bg-slate-200 overflow-hidden shadow-2xl ">
           <Link href={/product/ + productSlug}>
