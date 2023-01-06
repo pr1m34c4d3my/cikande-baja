@@ -11,7 +11,7 @@ const TopMenu = (props: Props) => {
           <Link href="#">Chat with us</Link>
         </li>
         <li>
-          <p>+420 336 775 664</p>
+          <p>+62 823-5332-0182</p>
         </li>
         <li>
           <p>info@cikandeindobaja.co.id</p>
