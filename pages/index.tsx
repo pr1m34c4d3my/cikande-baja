@@ -24,6 +24,9 @@ import "swiper/css/scrollbar";
 import ProductCard from "../components/molecules/ProductCard";
 import Footer from "../components/organisms/Footer";
 import Teams from "../components/molecules/Teams";
+import ReviewCard from "../components/molecules/ReviewCard";
+import Testimonials from "../components/organisms/Testimonials";
+import SideBar from "../components/molecules/SideBar";
 
 const graphcms = new GraphQLClient(
   "https://api-ap-southeast-2.hygraph.com/v2/clavgu89u2wfb01t4dyh4grkz/master"
@@ -151,25 +154,8 @@ const Home: NextPage = ({ categories, sliders, products }: any) => {
       </main>
 
       <section className="flex lg:flex-row flex-col-reverse max-w-[1170px] items-center lg:items-start mt-10 mx-auto lg:justify-between  ">
-        <div className="flex flex-col justify-start w-4/12 ">
-          <div className="flex flex-col gap-5 min-h-[350px]">
-            <h1 className="font-bold text-[18px]">Produk Paling Laris</h1>
-            <ul className="flex flex-col gap-1 text-[12px] text-secondary underline cursor-pointer">
-              <li>Besi</li>
-              <li>Alumunium Foil Bubble</li>
-              <li>Expnaded Metal</li>
-              <li>Besi Siku</li>
-              <li>Plat Border</li>
-            </ul>
-            <div>
-              <button className="bg-[#F5F5F5] text-[12px] h-[30px] w-[150px] rounded-lg font-bold hover:border-[1px] hover:bg-white hover:text-main transition-all">
-                Lihat Produk Lain
-              </button>
-            </div>
-          </div>
-          <div>Banner Iklan</div>
-        </div>
-        <div className="flex flex-wrap justify-between gap-2 w-8/12">
+        <SideBar />
+        <div className="flex flex-wrap justify-between w-10/12">
           {products.map((product: any, index: number) => (
             <ProductCard
               key={index}
@@ -182,7 +168,13 @@ const Home: NextPage = ({ categories, sliders, products }: any) => {
         </div>
       </section>
 
-      <Teams />
+      <section className="max-w-[1366px] mx-auto">
+        <Teams />
+      </section>
+
+      <section className="max-w-[1170px] mx-auto my-10">
+        <Testimonials />
+      </section>
 
       <div className="bg-[#575757]">
         <Footer />

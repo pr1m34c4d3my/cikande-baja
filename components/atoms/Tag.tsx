@@ -1,12 +1,5 @@
 import React from "react";
 
-type Tag = {
-  name: string;
-};
-type Prop = {
-  title: Tag[];
-};
-
 function Tag({ title }: any) {
   return (
     <a

@@ -53,20 +53,22 @@ const Teams = (props: Props) => {
             sales kami yang profesional
           </p>
         </div>
-        <div className="flex flex-col lg:flex-row gap-10">
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
           {team.map((v: TeamList) => (
-            <Team
-              teams={[
-                {
-                  id: v.id,
-                  title: v.title,
-                  name: v.name,
-                  image: v.image,
-                  desc: v.desc,
-                  handphone: v.handphone,
-                },
-              ]}
-            />
+            <div key={v.id} className="flex">
+              <Team
+                teams={[
+                  {
+                    id: v.id,
+                    title: v.title,
+                    name: v.name,
+                    image: v.image,
+                    desc: v.desc,
+                    handphone: v.handphone,
+                  },
+                ]}
+              />
+            </div>
           ))}
         </div>
       </div>

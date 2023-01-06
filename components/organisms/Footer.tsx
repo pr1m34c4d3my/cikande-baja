@@ -181,14 +181,11 @@ const Footer = () => {
       <div className="flex flex-col">
         <h2 className="text-white font-bold text-[18px]">Produk Tag</h2>
         <div className="flex flex-wrap gap-3 mt-5">
-          {tag.map((v) => {
+          {tag.map((v, index) => {
             return (
-              <a
-                className="bg-[#f5f5f5] text-[14px] w-[95px] text-center  font-medium rounded-lg hover:bg-[#c1c1c1] hover:text-white transition-all"
-                href="/"
-              >
-                {v.name}
-              </a>
+              <div key={v.id} className="flex">
+                <Tag title={v.name} />
+              </div>
             );
           })}
         </div>
