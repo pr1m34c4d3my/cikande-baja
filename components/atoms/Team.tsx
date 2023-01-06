@@ -25,7 +25,7 @@ const Team = ({ teams }: Props) => {
           <div className="items-center hover:scale-110 ease-out duration-200 flex flex-col bg-gray-50 rounded-lg shadow sm:flex dark:bg-gray-800 dark:border-gray-700">
             <figure className="w-[300px] h-[300px] bg-white overflow-hidden relative rounded-2xl">
               <Image
-                className="w-full object-fit absolute -top-[100px]"
+                className="w-full object-cover absolute -top-[100px]"
                 src={v.image}
                 alt={`Cover Photo of ${v.name}`}
                 width={400}
