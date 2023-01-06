@@ -228,7 +228,7 @@ const ProductPost = ({ categories, product, products }: any) => {
               <span className="text-black ml-5">{product.deliveryArea}</span>{" "}
             </li>
           </ul>
-          <Link href="https://wa.me/6282122920950" target="_blank">
+          <Link href="https://wa.me/6282353320182" target="_blank">
             <button className="w-[140px] h-[50px] bg-main rounded-xl hover:bg-white hover:scale-110 hover:text-main transition-all text-white font-bold mt-5">
               Beli Produk
             </button>
