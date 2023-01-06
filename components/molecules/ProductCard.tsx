@@ -11,7 +11,7 @@ const ProductCard = ({
   productSlug,
 }: any) => {
   return (
-    <div className="max-w-[245px] h-[310px] mb-16 rounded-2xl flex flex-col hover:scale-110 shadow-lg hover:shadow-2xl ease-out duration-200 p-3 justify-between overflow-hidden border-[#D1D1D1] border-[1px]">
+    <div className="max-w-[245px] bg-white h-[310px] mb-16 rounded-2xl flex flex-col hover:scale-110 shadow-lg hover:shadow-2xl ease-out duration-200 p-3 justify-between overflow-hidden border-[#D1D1D1] border-[1px]">
       <div className="flex flex-col">
         <div className="w-[220px] mt-2 h-[120px] rounded-2xl bg-slate-200 overflow-hidden shadow-2xl ">
           <Link href={/product/ + productSlug}>

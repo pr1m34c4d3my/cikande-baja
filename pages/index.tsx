@@ -86,14 +86,16 @@ export async function getStaticProps() {
 const Home: NextPage = ({ categories, sliders, products }: any) => {
   SwiperCore.use([Autoplay, Navigation, Pagination, Scrollbar, A11y]);
   return (
-    <>
+    <div className="bg-mainBg">
       <Head>
         <title>Cikande Indobaja Mandiri | Home</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* HEADER Start */}
-      <TopMenu />
+      <div className="w-full bg-white">
+        <TopMenu />
+      </div>
 
       <div className="bg-[#575757]">
         <MainNavigation />
@@ -180,7 +182,7 @@ const Home: NextPage = ({ categories, sliders, products }: any) => {
       <div className="bg-[#575757]">
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 
