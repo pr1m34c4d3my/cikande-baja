@@ -27,9 +27,11 @@ import Teams from "../components/molecules/Teams";
 import ReviewCard from "../components/molecules/ReviewCard";
 import Testimonials from "../components/organisms/Testimonials";
 import SideBar from "../components/molecules/SideBar";
+import Image from "next/image";
+import Services from "../components/organisms/Services";
 
 const graphcms = new GraphQLClient(
-  "https://api-ap-southeast-2.hygraph.com/v2/clavgu89u2wfb01t4dyh4grkz/master"
+  "https://ap-southeast-2.cdn.hygraph.com/content/clavgu89u2wfb01t4dyh4grkz/master"
 );
 
 const QUERY = gql`
@@ -166,6 +168,10 @@ const Home: NextPage = ({ categories, sliders, products }: any) => {
             />
           ))}
         </div>
+      </section>
+
+      <section className="mt-10">
+        <Services />
       </section>
 
       <section className="max-w-[1366px] mx-auto">

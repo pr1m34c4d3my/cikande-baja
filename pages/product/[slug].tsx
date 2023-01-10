@@ -28,7 +28,7 @@ import Footer from "../../components/organisms/Footer";
 type Props = {};
 
 const graphcms = new GraphQLClient(
-  "https://api-ap-southeast-2.hygraph.com/v2/clavgu89u2wfb01t4dyh4grkz/master"
+  "https://ap-southeast-2.cdn.hygraph.com/content/clavgu89u2wfb01t4dyh4grkz/master"
 );
 
 const ALL = gql`
