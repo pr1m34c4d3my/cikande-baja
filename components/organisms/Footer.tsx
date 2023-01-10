@@ -12,8 +12,17 @@ type List = {
 
 type Props = {};
 
+const AnyReactComponent = ({ text }: any) => <div>{text}</div>;
+
 const Footer = () => {
   const [tag, setTag] = useState<List[]>([]);
+  const defaultProps = {
+    center: {
+      lat: 10.99835602,
+      lng: 77.01502627,
+    },
+    zoom: 11,
+  };
 
   const tags = () => {
     const list: List[] = [
@@ -44,25 +53,43 @@ const Footer = () => {
 
   return (
     <div className="flex flex-col p-2 max-w-[1170px] gap-5 mx-auto">
-      <figure className="lg:w-[370px] w-[270px] mt-5">
-        <Link href="/">
-          <Image priority src={logo} alt="logo"></Image>
-        </Link>
-      </figure>
-      <div className="flex flex-wrap flex-row mt-5 w-full justify-between gap-6">
-        <div className="flex flex-col gap-5 w-full lg:w-4/12">
-          <h2 className="text-[17px] font-bold text-white">Tentang Kami</h2>
-          <p className="text-white text-[13px]">
-            Kami fokus melayani penjualan Besi Baja - Stainless Steel - Pipa PVC
-            & Mesin Teknik yang lebih LENGKAP & Berkualitas dalam penyediaan
-            kebutuhan Kontruksi di berbagai sektor bangunan baik itu Gudang
-            Pabrik, Rumah tinggal, Ruko, Rukan, Gedung Perkantoran, Sekolah,
-            Pabrik, dan lain sebagainya.
-          </p>
+      <div className="flex my-5">
+        <div className="flex-col">
+          <figure className="lg:w-[370px] w-[270px] mt-5">
+            <Link href="/">
+              <Image priority src={logo} alt="logo"></Image>
+            </Link>
+          </figure>
+          <div className="flex flex-wrap flex-row mt-5 w-full justify-between gap-6">
+            <div className="flex flex-col gap-5 w-full lg:w-10/12">
+              <h2 className="text-[20px] font-bold text-white">Tentang Kami</h2>
+              <p className="text-white text-[13px]">
+                Kami fokus melayani penjualan Besi Baja - Stainless Steel - Pipa
+                PVC & Mesin Teknik yang lebih LENGKAP & Berkualitas dalam
+                penyediaan kebutuhan Kontruksi di berbagai sektor bangunan baik
+                itu Gudang Pabrik, Rumah tinggal, Ruko, Rukan, Gedung
+                Perkantoran, Sekolah, Pabrik, dan lain sebagainya.
+              </p>
+            </div>
+          </div>
         </div>
+        <div>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.443325708651!2d106.36392071486621!3d-6.205104362512002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e42033c38bfbe55%3A0x22bdc88f5b4d15e1!2sPT.%20Cikande%20Indobaja%20Mandiri!5e0!3m2!1sid!2sid!4v1673335829167!5m2!1sid!2sid"
+            width="600"
+            height="250"
+            className="rounded-xl"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+
+      <div className="flex justify-between ">
         {/* Footer Menu */}
         <div className="flex flex-col gap-5 ">
-          <h2 className="text-[17px] font-bold text-white">Lebih Dekat</h2>
+          <h2 className="text-[20px] cursor-pointer hover:text-secondary border-b-2  ease-in duration-200 font-bold text-white">
+            Lebih Dekat
+          </h2>
           <ul className=" text-white flex flex-col text-[14px] items-start gap-2">
             <Link href="/">
               <li className="hover:text-secondary hover:scale-105 transition-all">
@@ -87,7 +114,9 @@ const Footer = () => {
           </ul>
         </div>
         <div className="flex flex-col gap-5 ">
-          <h2 className="text-[17px] font-bold text-white">Sosial Media</h2>
+          <h2 className="text-[20px] cursor-pointer hover:text-secondary border-b-2  ease-in duration-200 font-bold text-white">
+            Sosial Media
+          </h2>
 
           <ul className=" text-white flex flex-col gap-2 text-[14px] items-start">
             <Link
@@ -125,7 +154,9 @@ const Footer = () => {
           </ul>
         </div>
         <div className="flex flex-col gap-5 ">
-          <h2 className="text-[17px] font-bold text-white">Partnership</h2>
+          <h2 className="text-[20px] cursor-pointer hover:text-secondary border-b-2  ease-in duration-200 font-bold text-white">
+            Partnership
+          </h2>
 
           <ul className=" text-white flex flex-col gap-2 text-[14px] items-start">
             <Link href="/">
@@ -151,7 +182,9 @@ const Footer = () => {
           </ul>
         </div>
         <div className="flex flex-col gap-5 ">
-          <h2 className="text-[17px] font-bold text-white">Bantuan</h2>
+          <h2 className="text-[20px] cursor-pointer hover:text-secondary border-b-2  ease-in duration-200 font-bold text-white">
+            Bantuan
+          </h2>
 
           <ul className=" text-white flex flex-col gap-2 text-[14px] items-start">
             <Link href="/">
