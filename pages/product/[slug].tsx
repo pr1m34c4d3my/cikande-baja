@@ -152,6 +152,7 @@ const ProductPost = ({ categories, product, products }: any) => {
     <div className="bg-mainBg">
       <Head>
         <title>Cikande Indobaja Mandiri | Produk</title>
+        <link rel="icon" href="/favicon.ico" />
         <meta
           property="og:title"
           content={`Produk ${product.productTitle} dari Cikande Indobaja Mandiri`}
@@ -162,7 +163,6 @@ const ProductPost = ({ categories, product, products }: any) => {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="627" />
         <meta property="og:type" content="website" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* HEADER Start */}
