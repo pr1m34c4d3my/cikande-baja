@@ -98,9 +98,15 @@ const Home: NextPage = ({ categories, sliders, products }: any) => {
         <title>Cikande Indobaja Mandiri | Home</title>
         <meta property="og:title" content="Cikande Indobaja Mandiri" />
         <meta
-          property="og:description"
-          content="Produksi dan Distribusi baja nomor 1 di Indonesia"
+          name="description"
+          content="Fokus kami melayani penjualan Besi Baja - Stainless Steel - Pipa PVC & Mesin Teknik yang lebih LENGKAP & Berkualitas dalam penyediaan kebutuhan Kontruksi di berbagai sektor bangunan baik itu Gudang Pabrik, Rumah tinggal, Ruko, Rukan, Gedung Perkantoran, Sekolah, Pabrik, dan lain sebagainya. "
+          key="desc"
         />
+        <meta
+          property="og:description"
+          content="Fokus kami melayani penjualan Besi Baja - Stainless Steel - Pipa PVC & Mesin Teknik yang lebih LENGKAP & Berkualitas dalam penyediaan kebutuhan Kontruksi di berbagai sektor bangunan baik itu Gudang Pabrik, Rumah tinggal, Ruko, Rukan, Gedung Perkantoran, Sekolah, Pabrik, dan lain sebagainya. "
+        />
+        <meta property="og:image" content="/favicon.ico" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
