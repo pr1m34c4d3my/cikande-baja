@@ -31,7 +31,7 @@ const Teams = (props: Props) => {
         name: "Najiah",
         image:
           "https://media.graphassets.com/wAU6siNLT76jo7kdGka3?_gl=1*14hs339*_ga*MjA5MTM2NzkzLjE2NzI5MDM4MTA.*_ga_G6FYGSYGZ4*MTY3Mjk5MjM5Ny43LjEuMTY3Mjk5MjQwNS41Mi4wLjA.",
-        desc: "Hubungi Sales Agent Najjah untuk pertanyaan lebih lanjut",
+        desc: "Hubungi Sales Agent Najiah untuk pertanyaan lebih lanjut",
         handphone: "https://wa.me/6285890311170",
       },
     ];
