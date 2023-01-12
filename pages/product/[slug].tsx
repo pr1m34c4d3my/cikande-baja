@@ -7,7 +7,7 @@ import CategoryMenu from "../../components/molecules/CategoryMenu";
 import MainNavigation from "../../components/molecules/MainNavigation";
 import ProductCard from "../../components/molecules/ProductCard";
 import TopMenu from "../../components/molecules/TopMenu";
-import Header from "../../components/organisms/Header";
+import { useRouter } from "next/router";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
   Autoplay,
@@ -140,15 +140,31 @@ export async function getStaticProps({ params }: any) {
 }
 
 const ProductPost = ({ categories, product, products }: any) => {
+  const { asPath } = useRouter();
+  const origin =
+    typeof window !== "undefined" && window.location.origin
+      ? window.location.origin
+      : "";
+
+  const URL = `${origin}${asPath}`;
+  console.log(URL);
   return (
-    <>
+    <div className="bg-mainBg">
       <Head>
-        <title>Cikande Indobaja Mandiri | Home</title>
+        <title>Cikande Indobaja Mandiri | Produk</title>
+        <meta
+          property="og:title"
+          content={`Produk ${product.productTitle} dari Cikande Indobaja Mandiri`}
+        />
+        <meta property="og:description" content={product.productDescription} />
+        <meta property="og:image" content={product.productPhoto1.url} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       {/* HEADER Start */}
-      <TopMenu />
+      <div className="w-full bg-white">
+        <TopMenu />
+      </div>
 
       <div className="bg-[#575757]">
         <MainNavigation />
@@ -228,7 +244,10 @@ const ProductPost = ({ categories, product, products }: any) => {
               <span className="text-black ml-5">{product.deliveryArea}</span>{" "}
             </li>
           </ul>
-          <Link href="https://wa.me/6282353320182" target="_blank">
+          <Link
+            href={`https://wa.me/6282353320182?text=Halo%20admin%20Cikande%20Indobaja%20Mandiri%2C%20saya%20ingin%20membeli%20produk%20${product.productTitle}.%0A%0A${URL}%0A%0ATerima%20kasih.`}
+            target="_blank"
+          >
             <button className="w-[140px] h-[50px] bg-main rounded-xl hover:bg-white hover:scale-110 hover:text-main transition-all text-white font-bold mt-5">
               Beli Produk
             </button>
@@ -291,7 +310,7 @@ const ProductPost = ({ categories, product, products }: any) => {
         </Link>
       </div>
 
-      <div className="w-full p-2">
+      <div className="w-full  p-2">
         <Swiper
           slidesPerView={1}
           autoplay={{
@@ -319,16 +338,15 @@ const ProductPost = ({ categories, product, products }: any) => {
 
       <div className="hidden lg:flex w-full justify-center">
         <Swiper
-          slidesPerView={5}
+          slidesPerView={4}
           autoplay={{
             delay: 2000,
           }}
-          navigation
           loop={true}
           pagination={{ clickable: true }}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
-          className="max-w-[1366px]"
+          className="max-w-[1170px] h-[500px]"
         >
           {products.map((product: any, index: number) => (
             <SwiperSlide key={index}>
@@ -347,7 +365,7 @@ const ProductPost = ({ categories, product, products }: any) => {
       <div className="bg-[#575757]">
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

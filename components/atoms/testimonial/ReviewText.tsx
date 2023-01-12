@@ -9,7 +9,7 @@ type Props = {
 
 const ReviewText = ({ text }: any) => {
   return (
-    <p className="text-[16px] text-center font-light text-gray-900 dark:text-white">
+    <p className="lg:text-[16px] text-[10px] text-center font-light text-gray-900 dark:text-white">
       "{text}"
     </p>
   );

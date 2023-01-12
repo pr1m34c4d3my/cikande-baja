@@ -53,7 +53,7 @@ const Footer = () => {
 
   return (
     <div className="flex flex-col p-2 max-w-[1170px] gap-5 mx-auto">
-      <div className="flex my-5">
+      <div className="flex lg:flex-row flex-col my-5">
         <div className="flex-col">
           <figure className="lg:w-[370px] w-[270px] mt-5">
             <Link href="/">
@@ -73,18 +73,16 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="flex items-center justify-center mt-5">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.443325708651!2d106.36392071486621!3d-6.205104362512002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e42033c38bfbe55%3A0x22bdc88f5b4d15e1!2sPT.%20Cikande%20Indobaja%20Mandiri!5e0!3m2!1sid!2sid!4v1673335829167!5m2!1sid!2sid"
-            width="600"
-            height="250"
-            className="rounded-xl"
+            className="rounded-xl w-full h-[300px] lg:w-[600px] lg:h-[250px]"
             loading="lazy"
           ></iframe>
         </div>
       </div>
 
-      <div className="flex justify-between ">
+      <div className="flex flex-wrap justify-center gap-[80px] lg:justify-between ">
         {/* Footer Menu */}
         <div className="flex flex-col gap-5 ">
           <h2 className="text-[20px] cursor-pointer hover:text-secondary border-b-2  ease-in duration-200 font-bold text-white">
@@ -211,7 +209,7 @@ const Footer = () => {
         </div>
         {/* Footer Menu */}
       </div>
-      <div className="flex flex-col">
+      <div className="flex flex-col mt-5">
         <h2 className="text-white font-bold text-[18px]">Produk Tag</h2>
         <div className="flex flex-wrap gap-3 mt-5">
           {tag.map((v, index) => {

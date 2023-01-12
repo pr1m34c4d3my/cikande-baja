@@ -105,9 +105,11 @@ export async function getStaticProps({ params }: any) {
 
 const CategoryPost = ({ category, categories, products }: any) => {
   return (
-    <div>
+    <div className="bg-mainBg">
       {/* HEADER Start */}
-      <TopMenu />
+      <div className="w-full bg-white">
+        <TopMenu />
+      </div>
 
       <div className="bg-[#575757]">
         <MainNavigation />

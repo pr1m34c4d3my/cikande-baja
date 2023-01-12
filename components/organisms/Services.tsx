@@ -6,7 +6,7 @@ type Props = {};
 const Services = (props: Props) => {
   return (
     <>
-      <div className="py-16 bg-gray-50 overflow-hidden">
+      <div className="max-w-[1366px] mx-auto py-16 overflow-hidden">
         <div className="container m-auto px-6 space-y-8 text-gray-500 md:px-12">
           <div>
             <span className="text-black text-[32px] font-bold">
@@ -28,7 +28,7 @@ const Services = (props: Props) => {
                 />
 
                 <div className="space-y-2">
-                  <h5 className="text-xl text-gray-800 font-medium transition group-hover:text-main">
+                  <h5 className="text-xl font-bold text-gray-800 transition group-hover:text-main">
                     Proses Cepat & Mudah
                   </h5>
                   <p className="text-sm text-gray-600">
@@ -37,16 +37,15 @@ const Services = (props: Props) => {
                     yang tepat waktu kepada Anda.
                   </p>
                 </div>
-                <a
-                  href="#"
-                  className="flex justify-between items-center group-hover:text-main"
-                >
-                  <span className="-translate-x-4 font-bold opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-                    <button className="w-[120px] h-[30px] text-[12px] bg-main rounded-xl hover:bg-white hover:scale-110 hover:text-main transition-all text-white font-bold mt-5">
-                      Hubungi Kami
-                    </button>
-                  </span>
-                </a>
+                <div className="flex justify-between items-center group-hover:text-main">
+                  <div className="-translate-x-4 font-bold opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+                    <a href="https://wa.me/6282353320182" target="_blank">
+                      <button className="w-[120px] h-[30px] text-[12px] bg-main rounded-xl hover:bg-white hover:scale-110 hover:text-main transition-all text-white font-bold mt-5">
+                        Hubungi Kami
+                      </button>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="relative group bg-white transition hover:z-[1] hover:shadow-2xl">
@@ -60,7 +59,7 @@ const Services = (props: Props) => {
                 />
 
                 <div className="space-y-2">
-                  <h5 className="text-xl text-gray-800 font-medium transition group-hover:text-main">
+                  <h5 className="text-xl font-bold text-gray-800 transition group-hover:text-main">
                     Akurasi & Presisi
                   </h5>
                   <p className="text-sm text-gray-600">
@@ -70,16 +69,15 @@ const Services = (props: Props) => {
                 </div>
               </div>
               <div className="p-8 ">
-                <a
-                  href="#"
-                  className="flex justify-between items-center group-hover:text-main"
-                >
-                  <span className="-translate-x-4 font-bold opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-                    <button className="w-[120px] h-[30px] text-[12px] bg-main rounded-xl hover:bg-white hover:scale-110 hover:text-main transition-all text-white font-bold mt-5">
-                      Hubungi Kami
-                    </button>
-                  </span>
-                </a>
+                <div className="flex justify-between items-center group-hover:text-main">
+                  <div className="-translate-x-4 font-bold opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+                    <a href="https://wa.me/6282353320182" target="_blank">
+                      <button className="w-[120px] h-[30px] text-[12px] bg-main rounded-xl hover:bg-white hover:scale-110 hover:text-main transition-all text-white font-bold mt-5">
+                        Hubungi Kami
+                      </button>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="relative group bg-white transition hover:z-[1] hover:shadow-2xl">
@@ -93,7 +91,7 @@ const Services = (props: Props) => {
                 />
 
                 <div className="space-y-2">
-                  <h5 className="text-xl text-gray-800 font-medium transition group-hover:text-main">
+                  <h5 className="text-xl font-bold text-gray-800 transition group-hover:text-main">
                     Pelayanan Prima
                   </h5>
                   <p className="text-sm text-gray-600">
@@ -103,16 +101,15 @@ const Services = (props: Props) => {
                 </div>
               </div>
               <div className="p-8">
-                <a
-                  href="#"
-                  className="flex justify-between items-center group-hover:text-main"
-                >
-                  <span className="-translate-x-4 font-bold opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-                    <button className="w-[120px] h-[30px] text-[12px] bg-main rounded-xl hover:bg-white hover:scale-110 hover:text-main transition-all text-white font-bold mt-5">
-                      Hubungi Kami
-                    </button>
-                  </span>
-                </a>
+                <div className="flex justify-between items-center group-hover:text-main">
+                  <div className="-translate-x-4 font-bold opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+                    <a href="https://wa.me/6282353320182" target="_blank">
+                      <button className="w-[120px] h-[30px] text-[12px] bg-main rounded-xl hover:bg-white hover:scale-110 hover:text-main transition-all text-white font-bold mt-5">
+                        Hubungi Kami
+                      </button>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="relative group bg-gray-100 transition hover:z-[1] hover:shadow-2xl lg:hidden xl:block">
@@ -126,7 +123,7 @@ const Services = (props: Props) => {
                 />
 
                 <div className="space-y-2">
-                  <h5 className="text-xl text-gray-800 font-medium transition group-hover:text-main">
+                  <h5 className="text-xl font-bold text-gray-800 transition group-hover:text-main">
                     Kualitas Terjamin
                   </h5>
                   <p className="text-sm text-gray-600">
@@ -134,16 +131,15 @@ const Services = (props: Props) => {
                     standard SNI.
                   </p>
                 </div>
-                <a
-                  href="#"
-                  className="flex justify-between items-center group-hover:text-main"
-                >
-                  <span className="-translate-x-4 font-bold opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">
-                    <button className="w-[120px] h-[30px] text-[12px] bg-main rounded-xl hover:bg-white hover:scale-110 hover:text-main transition-all text-white font-bold mt-5">
-                      Hubungi Kami
-                    </button>
-                  </span>
-                </a>
+                <div className="flex justify-between items-center group-hover:text-main">
+                  <div className="-translate-x-4 font-bold opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">
+                    <a href="https://wa.me/6282353320182" target="_blank">
+                      <button className="w-[120px] h-[30px] text-[12px] bg-main rounded-xl hover:bg-white hover:scale-110 hover:text-main transition-all text-white font-bold mt-5">
+                        Hubungi Kami
+                      </button>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

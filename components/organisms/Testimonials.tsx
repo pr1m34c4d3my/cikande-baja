@@ -57,7 +57,7 @@ const Testimonials = ({}: Props) => {
   }, []);
 
   return (
-    <div className="w-full items-center flex flex-col mx-auto gap-2 justify-between">
+    <div className="w-full items-center p-5 lg:p-0 flex flex-col mx-auto gap-2 justify-between">
       <h1 className="text-[32px] font-bold mb-10">Testimonial</h1>
       <Swiper
         slidesPerView={1}
@@ -68,11 +68,11 @@ const Testimonials = ({}: Props) => {
         pagination={{ clickable: true }}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
-        className="w-full h-[300px] text-black"
+        className="w-full h-[320px] bg-white rounded-xl  text-black"
       >
         {testi.map((v: Testimonials, index) => {
           return (
-            <SwiperSlide key={index}>
+            <SwiperSlide className="py-5" key={index}>
               <ReviewCard
                 data={[
                   {
