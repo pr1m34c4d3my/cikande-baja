@@ -152,13 +152,17 @@ const ProductPost = ({ categories, product, products }: any) => {
     <div className="bg-mainBg">
       <Head>
         <title>Cikande Indobaja Mandiri | Produk</title>
+        <link rel="icon" href="/favicon.ico" />
         <meta
           property="og:title"
           content={`Produk ${product.productTitle} dari Cikande Indobaja Mandiri`}
         />
         <meta property="og:description" content={product.productDescription} />
+        <meta property="og:url" content={URL} />
         <meta property="og:image" content={product.productPhoto1.url} />
-        <link rel="icon" href="/favicon.ico" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="627" />
+        <meta property="og:type" content="website" />
       </Head>
 
       {/* HEADER Start */}
