@@ -20,7 +20,7 @@ const SideBar = (props: Props) => {
           </button>
         </div>
       </div>
-      <div>Banner Iklan</div>
+      <div className="hidden lg:block">Banner Iklan</div>
     </div>
   );
 };

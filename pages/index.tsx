@@ -4,7 +4,6 @@ import TopMenu from "../components/molecules/TopMenu";
 import MainNavigation from "../components/molecules/MainNavigation";
 import CategoryMenu from "../components/molecules/CategoryMenu";
 import { GraphQLClient, gql } from "graphql-request";
-import Header from "../components/organisms/Header";
 import Slider from "../components/molecules/Slider";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -29,6 +28,7 @@ import Testimonials from "../components/organisms/Testimonials";
 import SideBar from "../components/molecules/SideBar";
 import Image from "next/image";
 import Services from "../components/organisms/Services";
+import Clients from "../components/organisms/Clients";
 
 const graphcms = new GraphQLClient(
   "https://ap-southeast-2.cdn.hygraph.com/content/clavgu89u2wfb01t4dyh4grkz/master"
@@ -93,9 +93,14 @@ const Home: NextPage = ({ categories, sliders, products }: any) => {
   SwiperCore.use([Autoplay, Navigation, Pagination, Scrollbar, A11y]);
 
   return (
-    <div>
+    <div className=" bg-mainBg">
       <Head>
         <title>Cikande Indobaja Mandiri | Home</title>
+        <meta property="og:title" content="Cikande Indobaja Mandiri" />
+        <meta
+          property="og:description"
+          content="Produksi dan Distribusi baja nomor 1 di Indonesia"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -155,9 +160,9 @@ const Home: NextPage = ({ categories, sliders, products }: any) => {
         </Swiper>
       </main>
 
-      <section className="flex lg:flex-row flex-col-reverse max-w-[1170px] items-center lg:items-start mt-10 mx-auto lg:justify-between  ">
+      <section className="flex lg:flex-row flex-col-reverse max-w-[1170px] p-5 lg:p-0 lg:items-start mt-10 mx-auto lg:justify-between  ">
         <SideBar />
-        <div className="flex flex-wrap justify-between w-10/12">
+        <div className="flex flex-wrap lg:justify-between justify-center lg:w-10/12">
           {products.map((product: any, index: number) => (
             <ProductCard
               key={index}
@@ -170,11 +175,15 @@ const Home: NextPage = ({ categories, sliders, products }: any) => {
         </div>
       </section>
 
-      <section className="mt-10">
+      <section className="w-full bg-gray-50 mt-10">
         <Services />
       </section>
 
-      <section className="max-w-[1366px] mx-auto">
+      <section>
+        <Clients />
+      </section>
+
+      <section className="w-full bg-teamBg bg-cover bg-no-repeat bg-center bg-fixed">
         <Teams />
       </section>
 
