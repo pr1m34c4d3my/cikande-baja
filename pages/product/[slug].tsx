@@ -149,7 +149,7 @@ const ProductPost = ({ categories, product, products }: any) => {
   const URL = `${origin}${asPath}`;
   console.log(URL);
   return (
-    <div className="bg-mainBg">
+    <div className="bg-fixed bg-mainBg">
       <Head>
         <title>Cikande Indobaja Mandiri | Produk</title>
         <link rel="icon" href="/favicon.ico" />
@@ -229,7 +229,7 @@ const ProductPost = ({ categories, product, products }: any) => {
             />
           </figure>
         </div>
-        <div className="flex flex-col gap-5 p-2 lg:w-6/12 lg:p-0">
+        <div className="flex flex-col bg-white gap-5 p-2 lg:w-6/12 lg:p-5 rounded-lg border-2">
           <h1 className="text-[32px] font-bold">{product.productTitle}</h1>
           <p>{product.productDescription}</p>
           <ul className="mt-10 flex flex-col">
@@ -249,7 +249,7 @@ const ProductPost = ({ categories, product, products }: any) => {
             </li>
           </ul>
           <Link
-            href={`https://wa.me/6282353320182?text=Halo%20admin%20Cikande%20Indobaja%20Mandiri%2C%20saya%20ingin%20membeli%20produk%20${product.productTitle}.%0A%0A${URL}%0A%0ATerima%20kasih.`}
+            href={`https://wa.me/6282353320182?text=Halo%20admin%20Cikande%20Indobaja%20Mandiri%2C%20saya%20ingin%20membeli%20produk%20${product.productTitle}.%0A%0ALink:%20${URL}%0A%0ATerima%20kasih.`}
             target="_blank"
           >
             <button className="w-[140px] h-[50px] bg-main rounded-xl hover:bg-white hover:scale-110 hover:text-main transition-all text-white font-bold mt-5">

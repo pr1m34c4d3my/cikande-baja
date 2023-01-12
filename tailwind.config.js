@@ -16,8 +16,8 @@ module.exports = {
         sans: ["Poppins", "sans-serif"],
       },
       backgroundImage: {
-        mainBg: "url('../assets/bordes.png')",
-        teamBg: "url('../assets/section-team.jpg')",
+        mainBg: "url('/img/bordes.png')",
+        teamBg: "url('/img/section-team.jpg')",
       },
     },
   },
