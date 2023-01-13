@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ReviewCard from "../molecules/ReviewCard";
+import Sejin from "../../public/img/profile/sejin.png";
 
 type Testimonials = {
   text: string;
   name: string;
-  image: string;
+  image: any;
   title: string;
 };
 
@@ -26,7 +27,7 @@ const Testimonials = ({}: Props) => {
         Sukses selalu untuk PT. CIKANDE INDOBAJA MANDIRI`,
         name: "Eka Prasetia",
         title: "Purchasing Dept - PT. SATYARAYA KERAMINDOINDAH",
-        image: "/",
+        image: "https://roman.co.id/wp-content/uploads/2022/02/LOGOROMAN.jpg",
       },
       {
         text: `Segala permintaan yang kami butuhkan sangat fast respon dan mengesankan sehingga kami tidak perlu menunggu lama dalam proses pengiriman kebutuhan material besi - baja.
@@ -36,7 +37,8 @@ const Testimonials = ({}: Props) => {
         Sukses selalu untuk PT. CIKANDE INDOBAJA MANDIRI`,
         name: "Agus Winarto",
         title: "Head HRD - PT. SEJIN CIPTA BANGUN",
-        image: "/",
+        image:
+          "https://cakapinterview.com/wp-content/uploads/2021/10/ck-PT-Parkland-World-Indonesia-696x419.jpg",
       },
       {
         text: `PT. CIM dikenal sebagai penyedia bahan besi baja dan bahan bangunan yang lengkap di daerah Cikande, pelayanan cepat & service yang maximal juga pengiriman tepat waktu telah kami rasakan di perusahaan kami.
@@ -46,7 +48,8 @@ const Testimonials = ({}: Props) => {
         Harapan kami PT. CIM terus berkembang & berinovasi sesuai perkembangan zaman, dalam penyedia produk besi - baja yang lebih lengkap lagi.`,
         name: "Christin Nobiantari",
         title: "Manager - PT. HANJIN KONTRUKSI",
-        image: "/",
+        image:
+          "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR65lI773EOWb-_jm-kdyn3n21J0T454NlOG73no1sDmFNP0WYq7UqexqXGlsU6lPf9HQ&usqp=CAU",
       },
     ];
     setTesti(list);

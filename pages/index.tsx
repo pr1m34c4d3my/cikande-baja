@@ -29,6 +29,8 @@ import SideBar from "../components/molecules/SideBar";
 import Image from "next/image";
 import Services from "../components/organisms/Services";
 import Clients from "../components/organisms/Clients";
+import { useState } from "react";
+import Articles from "../components/organisms/Articles";
 
 const graphcms = new GraphQLClient(
   "https://ap-southeast-2.cdn.hygraph.com/content/clavgu89u2wfb01t4dyh4grkz/master"
@@ -36,6 +38,17 @@ const graphcms = new GraphQLClient(
 
 const QUERY = gql`
   {
+    articles {
+      id
+      articleTitle
+      articleSlug
+      articlePhoto {
+        url
+      }
+      contentArtikel {
+        html
+      }
+    }
     categories {
       id
       categoryTitle
@@ -78,18 +91,21 @@ const QUERY = gql`
 `;
 
 export async function getStaticProps() {
-  const { categories, sliders, products } = await graphcms.request(QUERY);
+  const { categories, sliders, products, articles } = await graphcms.request(
+    QUERY
+  );
   return {
     props: {
       categories,
       sliders,
       products,
+      articles,
     },
     revalidate: 10,
   };
 }
 
-const Home: NextPage = ({ categories, sliders, products }: any) => {
+const Home: NextPage = ({ categories, sliders, products, articles }: any) => {
   SwiperCore.use([Autoplay, Navigation, Pagination, Scrollbar, A11y]);
 
   return (
@@ -195,6 +211,10 @@ const Home: NextPage = ({ categories, sliders, products }: any) => {
 
       <section className="max-w-[1170px] mx-auto my-10">
         <Testimonials />
+      </section>
+
+      <section className="max-w-[1170px] mx-auto my-10">
+        <Articles />
       </section>
 
       <div className="bg-[#575757]">
