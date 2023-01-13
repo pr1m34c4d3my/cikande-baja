@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 type Props = {};
 
@@ -34,7 +35,10 @@ const ProductCard = ({
         </div>
       </div>
       <div className="flex flex-row justify-end">
-        <Link href="https://wa.me/6282353320182" target="_blank">
+        <Link
+          href={`https://wa.me/6282353320182?text=Halo%20admin%20Cikande%20Indobaja%20Mandiri%2C%20saya%20ingin%20membeli%20produk%20*${productTitle}*.%0A%0ATerima%20kasih.`}
+          target="_blank"
+        >
           <button className="mt-5 bg-[#db2d2d] text-[12px] w-[120px] text-white py-1 px-2 rounded-xl font-bold hover:border-[#e70302] hover:bg-white hover:text-[#e70302] hover:scale-110 transition-all">
             Beli Produk
           </button>

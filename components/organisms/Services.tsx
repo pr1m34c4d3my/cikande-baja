@@ -32,9 +32,8 @@ const Services = (props: Props) => {
                     Proses Cepat & Mudah
                   </h5>
                   <p className="text-sm text-gray-600">
-                    Kami percaya bahwa Waktu adalah Uang, oleh karena itu, kami
-                    menyediakan armada yang memadai untuk melakukan pengiriman
-                    yang tepat waktu kepada Anda.
+                    Kami percaya bahwa Waktu adalah Uang, kami melakukan
+                    pengiriman yang tepat waktu kepada Anda.
                   </p>
                 </div>
                 <div className="flex justify-between items-center group-hover:text-main">
@@ -112,14 +111,14 @@ const Services = (props: Props) => {
                 </div>
               </div>
             </div>
-            <div className="relative group bg-gray-100 transition hover:z-[1] hover:shadow-2xl lg:hidden xl:block">
-              <div className="relative p-8 space-y-8 border-dashed rounded-lg transition duration-300 group-hover:bg-white group-hover:border group-hover:scale-90">
+            <div className="relative group bg-white transition hover:z-[1] hover:shadow-2xl">
+              <div className="relative p-8 space-y-8 flex flex-col justify-between">
                 <Image
                   src="https://cdn-icons-png.flaticon.com/512/456/456115.png"
                   className="w-10"
+                  alt="burger illustration"
                   width="512"
                   height="512"
-                  alt="burger illustration"
                 />
 
                 <div className="space-y-2">
@@ -131,6 +130,8 @@ const Services = (props: Props) => {
                     standard SNI.
                   </p>
                 </div>
+              </div>
+              <div className="p-8 ">
                 <div className="flex justify-between items-center group-hover:text-main">
                   <div className="-translate-x-4 font-bold opacity-0 text-2xl transition duration-300 group-hover:opacity-100 group-hover:translate-x-0">
                     <a href="https://wa.me/6282353320182" target="_blank">
@@ -141,6 +142,18 @@ const Services = (props: Props) => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="flex justify-center">
+            <div>
+              <iframe
+                width="560"
+                height="315"
+                className="rounded-2xl"
+                src="https://www.youtube.com/embed/DLj2_gxxTvQ?autoplay=1&mute=1"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              ></iframe>
             </div>
           </div>
         </div>

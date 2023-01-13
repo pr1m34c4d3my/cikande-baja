@@ -5,15 +5,15 @@ type Props = {};
 
 const ReviewImage = ({ image }: any) => {
   return (
-    <>
+    <figure className="w-[100px] rounded-full border-2 bg-slate-200 overflow-hidden">
       <Image
-        className="w-6 h-6 rounded-full"
-        src="/"
+        className="object-cover bg-white"
+        src={image}
         alt="profile picture"
-        width={200}
-        height={200}
+        width={170}
+        height={100}
       />
-    </>
+    </figure>
   );
 };
 

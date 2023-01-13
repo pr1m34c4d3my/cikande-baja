@@ -43,8 +43,8 @@ const Teams = (props: Props) => {
   }, []);
   return (
     <>
-      <div className="py-8 flex flex-col px-4 mx-auto max-w-[1170px] lg:py-16 lg:px-6 ">
-        <div className="mx-auto max-w-screen-sm text-center mb-8 lg:mb-16">
+      <div className="py-8 flex flex-col justify-start items-start px-4 mx-auto max-w-[1170px] lg:py-16 lg:px-6 ">
+        <div className=" max-w-screen-sm mb-8 lg:mb-16">
           <h2 className="mb-4 text-[32px] tracking-tight font-extrabold text-gray-900 dark:text-white">
             Team Sales
           </h2>

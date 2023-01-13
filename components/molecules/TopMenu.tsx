@@ -11,7 +11,7 @@ const TopMenu = (props: Props) => {
           <Link href="#">Chat with us</Link>
         </li>
         <li>
-          <p>+62 823-5332-0182</p>
+          <Link href="https://wa.me/6287880807693">+62 878 8080 7693</Link>
         </li>
         <li>
           <p>info@cikandeindobaja.co.id</p>

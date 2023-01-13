@@ -3,6 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import logo from "../../public/img/logo.png";
 import Tag from "../atoms/Tag";
+import Wa from "/public/img/wa.png";
 
 type List = {
   id: number;
@@ -70,6 +71,26 @@ const Footer = () => {
                 itu Gudang Pabrik, Rumah tinggal, Ruko, Rukan, Gedung
                 Perkantoran, Sekolah, Pabrik, dan lain sebagainya.
               </p>
+            </div>
+            <div className="flex gap-1 items-start justify-start text-white">
+              <h2 className="text-[14px] font-bold text-white">
+                Hubungi Kami:
+              </h2>
+              <div className="flex flex-col">
+                <Link
+                  className="hover:text-secondary duration-200 ease-in"
+                  href="https://wa.me/6287880807693"
+                >
+                  +62 878 8080 7693
+                </Link>
+
+                <Link
+                  className="hover:text-secondary duration-200 ease-in"
+                  href="https://wa.me/6287880807693"
+                >
+                  +62 812 8686 7963
+                </Link>
+              </div>
             </div>
           </div>
         </div>
