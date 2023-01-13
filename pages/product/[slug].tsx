@@ -24,6 +24,7 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import ProductSlider from "../../components/molecules/ProductSlider";
 import Footer from "../../components/organisms/Footer";
+import TableBody from "../../components/molecules/table/TableBody";
 
 type Props = {};
 
@@ -276,33 +277,15 @@ const ProductPost = ({ categories, product, products }: any) => {
                 <td className="py-2">Detail</td>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td className="py-5">{product.productType}</td>
-                <td className="py-5">{product.productSize}</td>
-                <td className="py-5">{product.productDetail}</td>
-              </tr>
-              <tr>
-                <td className="py-5">{product.productType}</td>
-                <td className="py-5">{product.productSize}</td>
-                <td className="py-5">{product.productDetail}</td>
-              </tr>
-              <tr>
-                <td className="py-5">{product.productType}</td>
-                <td className="py-5">{product.productSize}</td>
-                <td className="py-5">{product.productDetail}</td>
-              </tr>
-              <tr>
-                <td className="py-5">{product.productType}</td>
-                <td className="py-5">{product.productSize}</td>
-                <td className="py-5">{product.productDetail}</td>
-              </tr>
-              <tr>
-                <td className="py-5">{product.productType}</td>
-                <td className="py-5">{product.productSize}</td>
-                <td className="py-5">{product.productDetail}</td>
-              </tr>
-            </tbody>
+            <TableBody
+              data={[
+                {
+                  type: product.productType,
+                  size: product.productSize,
+                  detail: product.productDetail,
+                },
+              ]}
+            />
           </table>
         </div>
       </div>

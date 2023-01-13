@@ -150,7 +150,7 @@ const Services = (props: Props) => {
                 width="560"
                 height="315"
                 className="rounded-2xl"
-                src="https://www.youtube.com/embed/DLj2_gxxTvQ?autoplay=1&mute=1"
+                src="https://www.youtube.com/embed/DLj2_gxxTvQ?autoplay=1&mute=1&loop=1"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               ></iframe>
