@@ -49,7 +49,7 @@ const QUERY = gql`
         }
       }
     }
-    articles {
+    articles(last: 3) {
       id
       excerpt
       articleTitle
@@ -240,7 +240,7 @@ const Home: NextPage = ({
       </section>
 
       <section className="max-w-[1170px] mx-auto my-10">
-        <div className="flex gap-10 items-center justify-center">
+        <div className="flex lg:flex-row p-5 flex-col gap-10 items-center justify-center">
           {featureds.map((v: any) =>
             v.articles.map((i: any, index: any) => {
               return (
@@ -253,7 +253,7 @@ const Home: NextPage = ({
             })
           )}
 
-          <div className="flex flex-col gap-[25px] w-6/12">
+          <div className="flex flex-col lg:gap-[25px] gap-[75px] lg:w-6/12">
             {articles
               ? articles.map((article: any, index: any) => (
                   <Articles
