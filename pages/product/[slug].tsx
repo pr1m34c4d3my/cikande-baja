@@ -163,7 +163,7 @@ const ProductPost = ({ categories, product, products }: any) => {
         <meta
           property="og:image"
           itemProp="image"
-          content={`${product.productPhoto1.url}`}
+          content={product.productPhoto1.url}
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="627" />
