@@ -5,6 +5,7 @@ import MainNavigation from "../components/molecules/MainNavigation";
 import CategoryMenu from "../components/molecules/CategoryMenu";
 import { GraphQLClient, gql } from "graphql-request";
 import Slider from "../components/molecules/Slider";
+import { motion } from "framer-motion";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, {
@@ -31,6 +32,7 @@ import Services from "../components/organisms/Services";
 import Clients from "../components/organisms/Clients";
 import { useState } from "react";
 import Articles from "../components/organisms/Articles";
+import FeaturedArticle from "../components/organisms/FeaturedArticle";
 
 const graphcms = new GraphQLClient(
   "https://ap-southeast-2.cdn.hygraph.com/content/clavgu89u2wfb01t4dyh4grkz/master"
@@ -38,8 +40,18 @@ const graphcms = new GraphQLClient(
 
 const QUERY = gql`
   {
+    featureds(last: 1, where: { isTrue: true }) {
+      id
+      articles {
+        articleTitle
+        articlePhoto {
+          url
+        }
+      }
+    }
     articles {
       id
+      excerpt
       articleTitle
       articleSlug
       articlePhoto {
@@ -91,21 +103,27 @@ const QUERY = gql`
 `;
 
 export async function getStaticProps() {
-  const { categories, sliders, products, articles } = await graphcms.request(
-    QUERY
-  );
+  const { categories, sliders, products, articles, featureds } =
+    await graphcms.request(QUERY);
   return {
     props: {
       categories,
       sliders,
       products,
       articles,
+      featureds,
     },
     revalidate: 10,
   };
 }
 
-const Home: NextPage = ({ categories, sliders, products, articles }: any) => {
+const Home: NextPage = ({
+  categories,
+  sliders,
+  products,
+  articles,
+  featureds,
+}: any) => {
   SwiperCore.use([Autoplay, Navigation, Pagination, Scrollbar, A11y]);
 
   return (
@@ -127,6 +145,7 @@ const Home: NextPage = ({ categories, sliders, products, articles }: any) => {
       </Head>
 
       {/* HEADER Start */}
+
       <div className="w-full bg-white">
         <TopMenu />
       </div>
@@ -162,24 +181,31 @@ const Home: NextPage = ({ categories, sliders, products, articles }: any) => {
       {/* HEADER end */}
 
       <main className="w-full">
-        <Swiper
-          slidesPerView={1}
-          autoplay={{
-            delay: 5000,
-          }}
-          loop={true}
-          navigation
-          pagination={{ clickable: true }}
-          onSlideChange={() => console.log("slide change")}
-          onSwiper={(swiper) => console.log(swiper)}
-          className="max-w-[1366px] text-black"
+        <motion.div
+          initial={{ opacity: 0, y: 200 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
         >
-          {sliders.map((slider: any, index: number) => (
-            <SwiperSlide key={index}>
-              <Slider sliderImage={slider.sliderImage} />
-            </SwiperSlide>
-          ))}
-        </Swiper>
+          <Swiper
+            slidesPerView={1}
+            autoplay={{
+              delay: 5000,
+            }}
+            loop={true}
+            navigation
+            pagination={{ clickable: true }}
+            onSlideChange={() => console.log("slide change")}
+            onSwiper={(swiper) => console.log(swiper)}
+            className="max-w-[1366px] text-black"
+          >
+            {sliders.map((slider: any, index: number) => (
+              <SwiperSlide key={index}>
+                <Slider sliderImage={slider.sliderImage} />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </motion.div>
       </main>
 
       <section className="flex lg:flex-row flex-col-reverse max-w-[1170px] p-5 lg:p-0 lg:items-start mt-10 mx-auto lg:justify-between  ">
@@ -214,7 +240,32 @@ const Home: NextPage = ({ categories, sliders, products, articles }: any) => {
       </section>
 
       <section className="max-w-[1170px] mx-auto my-10">
-        <Articles />
+        <div className="flex gap-10 items-center justify-center">
+          {featureds.map((v: any) =>
+            v.articles.map((i: any, index: any) => {
+              return (
+                <FeaturedArticle
+                  key={index}
+                  judul={i.articleTitle}
+                  gambar={i.articlePhoto.url}
+                />
+              );
+            })
+          )}
+
+          <div className="flex flex-col gap-[25px] w-6/12">
+            {articles
+              ? articles.map((article: any, index: any) => (
+                  <Articles
+                    key={index}
+                    judul={article.articleTitle}
+                    konten={article.excerpt}
+                    gambar={article.articlePhoto.url}
+                  />
+                ))
+              : "kosong"}
+          </div>
+        </div>
       </section>
 
       <div className="bg-[#575757]">
