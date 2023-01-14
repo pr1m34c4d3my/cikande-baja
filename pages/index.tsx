@@ -242,9 +242,10 @@ const Home: NextPage = ({
       <section className="max-w-[1170px] mx-auto my-10">
         <div className="flex gap-10 items-center justify-center">
           {featureds.map((v: any) =>
-            v.articles.map((i: any) => {
+            v.articles.map((i: any, index: any) => {
               return (
                 <FeaturedArticle
+                  key={index}
                   judul={i.articleTitle}
                   gambar={i.articlePhoto.url}
                 />
