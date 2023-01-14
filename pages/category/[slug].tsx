@@ -2,7 +2,10 @@ import { gql, GraphQLClient } from "graphql-request";
 import React from "react";
 import CategoryMenu from "../../components/molecules/CategoryMenu";
 import MainNavigation from "../../components/molecules/MainNavigation";
+import ProductCard from "../../components/molecules/ProductCard";
+import SideBar from "../../components/molecules/SideBar";
 import TopMenu from "../../components/molecules/TopMenu";
+import Footer from "../../components/organisms/Footer";
 
 const graphcms = new GraphQLClient(
   "https://ap-southeast-2.cdn.hygraph.com/content/clavgu89u2wfb01t4dyh4grkz/master"
@@ -60,6 +63,7 @@ const QUERY = gql`
       products {
         id
         productTitle
+        productSlug
         homeDescription
         productPhoto1 {
           id
@@ -141,13 +145,26 @@ const CategoryPost = ({ category, categories, products }: any) => {
 
       {/* HEADER end */}
 
-      {category.products.map((v: any, index: number) => {
-        return (
-          <h1 key={v.id} className="font-bold text-[52px]">
-            {v.productTitle}
-          </h1>
-        );
-      })}
+      <section className="flex max-w-[1170px] my-10 mx-auto">
+        <SideBar />
+        <div className="flex w-10/12 justify-center gap-5">
+          {category.products.map((v: any, index: number) => {
+            return (
+              <ProductCard
+                key={index}
+                productTitle={v.productTitle}
+                homeDescription={v.homeDescription}
+                productSlug={v.productSlug}
+                productPhoto1={v.productPhoto1}
+              />
+            );
+          })}
+        </div>
+      </section>
+
+      <div className="bg-[#575757]">
+        <Footer />
+      </div>
     </div>
   );
 };
