@@ -254,7 +254,7 @@ const ProductPost = ({ categories, product, products }: any) => {
             </li>
           </ul>
           <Link
-            href={`https://wa.me/6282353320182?text=Halo%20admin%20Cikande%20Indobaja%20Mandiri%2C%20saya%20ingin%20membeli%20produk%20${product.productTitle}.%0A%0ALink:%20${URL}%0A%0ATerima%20kasih.`}
+            href={`https://wa.me/6287880807693?text=Halo%20admin%20Cikande%20Indobaja%20Mandiri%2C%20saya%20ingin%20membeli%20produk%20${product.productTitle}.%0A%0ATerima%20kasih.`}
             target="_blank"
           >
             <button className="w-[140px] h-[50px] bg-main rounded-xl hover:bg-white hover:scale-110 hover:text-main transition-all text-white font-bold mt-5">
