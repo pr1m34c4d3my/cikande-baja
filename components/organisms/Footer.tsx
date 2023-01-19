@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import logo from "../../public/img/logo.png";
+import logo from "../../public/img/LOGO-White.png";
 import Tag from "../atoms/Tag";
 import Wa from "/public/img/wa.png";
 
