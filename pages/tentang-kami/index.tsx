@@ -146,7 +146,7 @@ const index = ({ categories, sliders, products, articles, featureds }: any) => {
 
       {/* HEADER end */}
 
-      <main className="h-screen max-w-[1170px] mx-auto flex flex-col mt-10 justify-start gap-5">
+      <main className="lg:h-screen max-w-[1170px] mx-auto flex flex-col mt-10 justify-start gap-5">
         <h1 className="text-[32px] font-bold">TENTANG KAMI</h1>
         <p>
           Tahun 1990 adalah tahun dimana awal mula perusahaan kami mengukir
