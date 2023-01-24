@@ -45,7 +45,7 @@ const ALL = gql`
         url
       }
     }
-    products(first: 10) {
+    products(first: 100) {
       productPhoto1 {
         url
       }
@@ -84,9 +84,6 @@ const QUERY = gql`
       productDescription
       deliveryDate
       deliveryArea
-      productType
-      productSize
-      productDetail
       fungsiDanPengukuran {
         html
       }
@@ -99,17 +96,13 @@ const QUERY = gql`
         id
         url
       }
-      productPhoto2 {
-        id
-        url
-      }
     }
   }
 `;
 
-const SLUGLIST: string = gql`
+const SLUGLIST = gql`
   {
-    products {
+    products(first: 100) {
       productSlug
     }
   }
@@ -136,7 +129,6 @@ export async function getStaticProps({ params }: any) {
       product,
       products,
     },
-    revalidate: 10,
   };
 }
 
@@ -273,24 +265,6 @@ const ProductPost = ({ categories, product, products }: any) => {
               }}
             ></span>
           </div>
-          <table>
-            <thead className=" border-b-2">
-              <tr>
-                <td className="py-2">Tipe</td>
-                <td className="py-2">Ukuran</td>
-                <td className="py-2">Detail</td>
-              </tr>
-            </thead>
-            <TableBody
-              data={[
-                {
-                  type: product.productType,
-                  size: product.productSize,
-                  detail: product.productDetail,
-                },
-              ]}
-            />
-          </table>
         </div>
       </div>
 

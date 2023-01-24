@@ -13,17 +13,19 @@ type Props = {
 
 const TableBody = ({ data }: Props) => {
   return (
-    <tbody>
-      {data.map((v: Value, index) => {
-        return (
-          <tr key={index}>
-            <DataCell value={v.type} />
-            <DataCell value={v.size} />
-            <DataCell value={v.detail} />
-          </tr>
-        );
-      })}
-    </tbody>
+    <>
+      <tbody className="">
+        {data.map((v: Value, index) => {
+          return (
+            <tr key={index}>
+              <DataCell value={v.type} />
+              <DataCell value={v.size} />
+              <DataCell value={v.detail} />
+            </tr>
+          );
+        })}
+      </tbody>
+    </>
   );
 };
 

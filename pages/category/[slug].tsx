@@ -1,4 +1,5 @@
 import { gql, GraphQLClient } from "graphql-request";
+import Head from "next/head";
 import React from "react";
 import CategoryMenu from "../../components/molecules/CategoryMenu";
 import MainNavigation from "../../components/molecules/MainNavigation";
@@ -8,12 +9,12 @@ import TopMenu from "../../components/molecules/TopMenu";
 import Footer from "../../components/organisms/Footer";
 
 const graphcms = new GraphQLClient(
-  "https://ap-southeast-2.cdn.hygraph.com/content/clavgu89u2wfb01t4dyh4grkz/master"
+  "https://api-ap-southeast-2.hygraph.com/v2/clavgu89u2wfb01t4dyh4grkz/master"
 );
 
 const ALL = gql`
   query products {
-    categories {
+    categories(first: 100) {
       id
       categoryTitle
       categorySlug
@@ -60,7 +61,7 @@ const QUERY = gql`
       id
       categoryTitle
       categorySlug
-      products {
+      products(first: 100) {
         id
         productTitle
         productSlug
@@ -76,7 +77,7 @@ const QUERY = gql`
 
 const SLUGLIST: string = gql`
   {
-    categories {
+    categories(first: 100) {
       categorySlug
     }
   }
@@ -110,6 +111,18 @@ export async function getStaticProps({ params }: any) {
 const CategoryPost = ({ category, categories, products }: any) => {
   return (
     <div className="bg-mainBg">
+      <Head>
+        <title>{`Cikande Indobaja Mandiri | ${category.categoryTitle}`}</title>
+        <link rel="icon" href="/favicon.ico" />
+        <meta
+          property="og:title"
+          content={`Produk ${category.categoryTitle} dari Cikande Indobaja Mandiri`}
+        />
+        <meta property="og:description" content={category.categoryTitle} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="627" />
+        <meta property="og:type" content="website" />
+      </Head>
       {/* HEADER Start */}
       <div className="w-full bg-white">
         <TopMenu />
@@ -147,7 +160,7 @@ const CategoryPost = ({ category, categories, products }: any) => {
 
       <section className="flex max-w-[1170px] my-10 mx-auto">
         <SideBar />
-        <div className="flex w-10/12 justify-center gap-5">
+        <div className="flex w-11/12 flex-wrap justify-center gap-5">
           {category.products.map((v: any, index: number) => {
             return (
               <ProductCard
