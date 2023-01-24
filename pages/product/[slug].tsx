@@ -199,7 +199,7 @@ const ProductPost = ({ categories, product, products }: any) => {
 
       <div className="flex flex-row max-w-[1170px] my-5 mx-auto justify-between">
         <nav>
-          <ul className="flex gap-2">
+          <ul className="flex text-[12px] gap-2">
             <Link href="/">
               <li className="text-faded hover:text-black">
                 Homepage <span className="text-faded hover:text-faded">/</span>{" "}
@@ -282,7 +282,7 @@ const ProductPost = ({ categories, product, products }: any) => {
             delay: 1000,
           }}
           loop={true}
-          pagination={{ clickable: true }}
+          pagination={{ dynamicBullets: true, clickable: true }}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
           className=" flex gap-5 lg:hidden "
@@ -308,7 +308,7 @@ const ProductPost = ({ categories, product, products }: any) => {
             delay: 2000,
           }}
           loop={true}
-          pagination={{ clickable: true }}
+          pagination={{ dynamicBullets: true, clickable: true }}
           onSlideChange={() => console.log("slide change")}
           onSwiper={(swiper) => console.log(swiper)}
           className="max-w-[1170px] h-[500px]"

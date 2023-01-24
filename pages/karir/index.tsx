@@ -146,7 +146,7 @@ const index = ({ categories, sliders, products, articles, featureds }: any) => {
 
       {/* HEADER end */}
 
-      <main className="h-screen w-full flex justify-center items-center">
+      <main className="lg:h-screen w-full flex justify-center items-center">
         <h1>COMING SOON</h1>
       </main>
 

@@ -147,7 +147,7 @@ const index = ({ categories, sliders, products, articles, featureds }: any) => {
 
       {/* HEADER end */}
 
-      <main className="h-screen w-full flex justify-center items-center">
+      <main className="h-screen w-full flex flex-col lg:flex-row justify-center items-center">
         COMING SOON - ON SEO SETUP WITH{" "}
         <Link href="https://google.com">GOOGLE.COM</Link>
       </main>
