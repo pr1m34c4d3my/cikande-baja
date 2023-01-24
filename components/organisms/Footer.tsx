@@ -86,7 +86,7 @@ const Footer = () => {
 
                 <Link
                   className="hover:text-secondary duration-200 ease-in"
-                  href="https://wa.me/6287880807693"
+                  href="https://wa.me/6281286867963"
                 >
                   +62 812 8686 7963
                 </Link>
@@ -110,22 +110,22 @@ const Footer = () => {
             Lebih Dekat
           </h2>
           <ul className=" text-white flex flex-col text-[14px] items-start gap-2">
-            <Link href="/">
+            <Link href="/tentang-kami">
               <li className="hover:text-secondary hover:scale-105 transition-all">
                 <p>Tentang kami</p>
               </li>
             </Link>
-            <Link href="/">
+            <Link href="/karir">
               <li className="hover:text-secondary hover:scale-105 transition-all">
                 <p>Karir</p>
               </li>
             </Link>
-            <Link href="/">
+            <Link href="https://google.com">
               <li className="hover:text-secondary hover:scale-105 transition-all">
                 <p>Press Release</p>
               </li>
             </Link>
-            <Link href="/">
+            <Link href="/artikel">
               <li className="hover:text-secondary hover:scale-105 transition-all">
                 <p>Artikel</p>
               </li>

@@ -15,7 +15,7 @@ const TopMenu = (props: Props) => {
         className="flex gap-4 w-full justify-between lg:w-6/12 text-[14px]"
       >
         <li className=" text-secondary hidden lg:block hover:text-black transition-all hover:scale-105">
-          <Link href="#">Chat with us</Link>
+          <Link href="https://wa.me/6287880807693">Chat with us</Link>
         </li>
         <li>
           <Link href="https://wa.me/6287880807693">+62 878 8080 7693</Link>
@@ -32,13 +32,13 @@ const TopMenu = (props: Props) => {
         className="flex gap-4 text-[14px] justify-between w-full lg:w-3/12 text-secondary "
       >
         <li className="hover:text-black transition-all hover:scale-105">
-          <Link href="#">Artikel</Link>
+          <Link href="/artikel">Artikel</Link>
         </li>
         <li className="hover:text-black transition-all hover:scale-105">
-          <Link href="#">Tentang Kami</Link>
+          <Link href="/tentang-kami">Tentang Kami</Link>
         </li>
         <li className="hover:text-black transition-all hover:scale-105">
-          <Link href="#">Karir</Link>
+          <Link href="/karir">Karir</Link>
         </li>
       </motion.ul>
     </nav>

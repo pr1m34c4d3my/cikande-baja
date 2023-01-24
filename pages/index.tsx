@@ -72,7 +72,7 @@ const QUERY = gql`
         url
       }
     }
-    products(first: 6) {
+    products(first: 9, skip: 2) {
       productPhoto1 {
         url
       }
@@ -113,7 +113,7 @@ export async function getStaticProps() {
       articles,
       featureds,
     },
-    revalidate: 10,
+    revalidate: 100,
   };
 }
 
