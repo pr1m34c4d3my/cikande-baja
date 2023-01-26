@@ -231,6 +231,7 @@ const Home: NextPage = ({
         <Clients />
       </section>
 
+      {/* 
       <section className="w-full bg-teamBg bg-cover bg-no-repeat bg-center bg-fixed">
         <Teams />
       </section>
@@ -238,6 +239,7 @@ const Home: NextPage = ({
       <section className="max-w-[1170px] mx-auto my-10">
         <Testimonials />
       </section>
+      */}
 
       <section className="max-w-[1170px] mx-auto my-10">
         <div className="flex lg:flex-row p-5 flex-col gap-10 items-center justify-center">
