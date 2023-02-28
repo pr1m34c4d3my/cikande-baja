@@ -23,16 +23,15 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import ProductCard from "../components/molecules/ProductCard";
 import Footer from "../components/organisms/Footer";
-import Teams from "../components/molecules/Teams";
-import ReviewCard from "../components/molecules/ReviewCard";
-import Testimonials from "../components/organisms/Testimonials";
+
 import SideBar from "../components/molecules/SideBar";
-import Image from "next/image";
 import Services from "../components/organisms/Services";
 import Clients from "../components/organisms/Clients";
-import { useState } from "react";
+
 import Articles from "../components/organisms/Articles";
 import FeaturedArticle from "../components/organisms/FeaturedArticle";
+import Testimonials from "../components/organisms/Testimonials";
+import Teams from "../components/molecules/Teams";
 
 const graphcms = new GraphQLClient(
   "https://ap-southeast-2.cdn.hygraph.com/content/clavgu89u2wfb01t4dyh4grkz/master"
@@ -212,13 +211,14 @@ const Home: NextPage = ({
         <SideBar />
         <div className="flex flex-wrap lg:justify-between justify-center lg:w-10/12">
           {products.map((product: any, index: number) => (
-            <ProductCard
-              key={index}
-              productTitle={product.productTitle}
-              homeDescription={product.homeDescription}
-              productSlug={product.productSlug}
-              productPhoto1={product.productPhoto1}
-            />
+            <div key={index}>
+              <ProductCard
+                productTitle={product.productTitle}
+                homeDescription={product.homeDescription}
+                productSlug={product.productSlug}
+                productPhoto1={product.productPhoto1}
+              />
+            </div>
           ))}
         </div>
       </section>
@@ -227,11 +227,12 @@ const Home: NextPage = ({
         <Services />
       </section>
 
+      {/*
       <section>
         <Clients />
       </section>
+             */}
 
-      {/* 
       <section className="w-full bg-teamBg bg-cover bg-no-repeat bg-center bg-fixed">
         <Teams />
       </section>
@@ -239,7 +240,6 @@ const Home: NextPage = ({
       <section className="max-w-[1170px] mx-auto my-10">
         <Testimonials />
       </section>
-      */}
 
       <section className="max-w-[1170px] mx-auto my-10">
         <div className="flex lg:flex-row p-5 flex-col gap-10 items-center justify-center">

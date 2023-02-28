@@ -25,7 +25,7 @@ const ReviewCard = ({ data }: Props) => {
             className="w-full flex flex-col justify-between items-center  h-[250px]"
           >
             <svg
-              className="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600"
+              className="h-12 mx-auto mb-3 text-gray-400"
               viewBox="0 0 24 27"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@ const ReviewCard = ({ data }: Props) => {
             <div>
               <figcaption className="flex items-center justify-center mt-6 space-x-3">
                 <ReviewImage image={v.image} />
-                <div className="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
+                <div className="flex items-center divide-x-2 divide-gray-500 ">
                   <ReviewName name={v.name} />
                   <ReviewTitle title={v.title} />
                 </div>

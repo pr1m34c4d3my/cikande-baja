@@ -12,25 +12,23 @@ const Teams = (props: Props) => {
         id: 1,
         title: "Sales 1",
         name: "Susi",
-        image: `https://media.graphassets.com/5Htz4JWfSezln53RpIzG?_gl=1*14hs339*_ga*MjA5MTM2NzkzLjE2NzI5MDM4MTA.*_ga_G6FYGSYGZ4*MTY3Mjk5MjM5Ny43LjEuMTY3Mjk5MjQwNS41Mi4wLjA.`,
+        image: `https://media.graphassets.com/UGNUpWRA2gTkTnRN5hqw`,
         desc: "Hubungi Sales Agent Susi untuk pertanyaan lebih lanjut",
         handphone: "https://wa.me/628176329842",
       },
       {
         id: 2,
         title: "Sales 2",
-        name: "Nuraini",
-        image:
-          "https://media.graphassets.com/HdFZcks8TYSr8jHzlcwy?_gl=1*1qgbwz4*_ga*MjA5MTM2NzkzLjE2NzI5MDM4MTA.*_ga_G6FYGSYGZ4*MTY3Mjk5MjM5Ny43LjEuMTY3Mjk5MjQwNS41Mi4wLjA.",
+        name: "Yohana",
+        image: `https://media.graphassets.com/libzaieiQEaCLBu4ZubX`,
         desc: "Hubungi Sales Agent Nuraini untuk pertanyaan lebih lanjut",
-        handphone: "https://wa.me/6281218957059",
+        handphone: "https://wa.me/6281384776860",
       },
       {
         id: 3,
         title: "Sales 3",
         name: "Najiah",
-        image:
-          "https://media.graphassets.com/wAU6siNLT76jo7kdGka3?_gl=1*14hs339*_ga*MjA5MTM2NzkzLjE2NzI5MDM4MTA.*_ga_G6FYGSYGZ4*MTY3Mjk5MjM5Ny43LjEuMTY3Mjk5MjQwNS41Mi4wLjA.",
+        image: "https://media.graphassets.com/mzLVm7LQQ5KWjAE27FsQ",
         desc: "Hubungi Sales Agent Najiah untuk pertanyaan lebih lanjut",
         handphone: "https://wa.me/6285890311170",
       },
@@ -45,7 +43,7 @@ const Teams = (props: Props) => {
     <>
       <div className="py-8 flex flex-col justify-start items-start px-4 mx-auto max-w-[1170px] lg:py-16 lg:px-6 ">
         <div className=" max-w-screen-sm mb-8 lg:mb-16">
-          <h2 className="mb-4 text-[32px] tracking-tight font-extrabold text-gray-900 dark:text-white">
+          <h2 className="mb-4 text-[32px] tracking-tight font-extrabold text-gray-900">
             Team Sales
           </h2>
           <p className="font-light text-gray-500 dark:text-gray-400">
@@ -54,8 +52,8 @@ const Teams = (props: Props) => {
           </p>
         </div>
         <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
-          {team.map((v: TeamList) => (
-            <div key={v.id} className="flex">
+          {team.map((v: TeamList, i: number) => (
+            <div key={i} className="flex">
               <Team
                 teams={[
                   {
