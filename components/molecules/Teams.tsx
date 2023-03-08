@@ -21,7 +21,7 @@ const Teams = (props: Props) => {
         title: "Sales 2",
         name: "Yohana",
         image: `https://media.graphassets.com/libzaieiQEaCLBu4ZubX`,
-        desc: "Hubungi Sales Agent Nuraini untuk pertanyaan lebih lanjut",
+        desc: "Hubungi Sales Yohana untuk pertanyaan lebih lanjut",
         handphone: "https://wa.me/6281384776860",
       },
       {
