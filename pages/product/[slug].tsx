@@ -108,17 +108,7 @@ const SLUGLIST = gql`
   }
 `;
 
-export async function getStaticPaths() {
-  const { products }: any = await graphcms.request(SLUGLIST);
-  return {
-    paths: products.map((product: any) => ({
-      params: { slug: product.productSlug },
-    })),
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }: any) {
+export async function getServerSideProps({ params }: any) {
   const slug: string = params.slug;
   const data: any = await graphcms.request(QUERY, { slug });
   const product: string = data.product;

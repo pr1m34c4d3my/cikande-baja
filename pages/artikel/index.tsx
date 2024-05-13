@@ -77,7 +77,7 @@ const QUERY = gql`
   }
 `;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { categories, sliders, products, articles, featureds } =
     await graphcms.request(QUERY);
   return {
@@ -88,7 +88,6 @@ export async function getStaticProps() {
       articles,
       featureds,
     },
-    revalidate: 100,
   };
 }
 
