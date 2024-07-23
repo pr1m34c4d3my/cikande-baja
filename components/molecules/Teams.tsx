@@ -25,7 +25,7 @@ const Teams = ({ teams }: Props) => {
           </p>
         </div>
         <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
-          {teams.map((v: TeamList, i: number) => (
+          {teams.map((v: any, i: number) => (
             <div key={i} className="flex">
               <Team
                 teams={[

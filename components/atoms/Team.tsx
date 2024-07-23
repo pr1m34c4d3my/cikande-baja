@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export type TeamList = {
-  id: number;
+  id: string;
   name: string;
   image?: string;
   phoneNumber: string;
