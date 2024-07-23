@@ -1,27 +1,38 @@
 import Image from "next/image";
 import React from "react";
 import Ads from "/public/img/ads.jpg";
+import Link from "next/link";
 
-type Props = {};
+type sideBarList = {
+  productTitle: string;
+  productSlug?: string;
+};
 
-const SideBar = (props: Props) => {
+type Props = {
+  sideBar: sideBarList[];
+};
+
+const SideBar = ({ sideBar }: Props) => {
   return (
     <div className="flex flex-col gap-24 justify-start w-4/12 ">
       <div className="flex flex-col gap-7 min-h-[350px]">
         <h1 className="font-bold text-[24px]">Produk Paling Laris</h1>
         <ul className="flex flex-col gap-3 text-[16px] text-secondary underline cursor-pointer">
-          <li>Besi Wf</li>
-          <li>H- Beam</li>
-          <li>Plat Kapal</li>
-          <li>CNP</li>
-          <li>UNP</li>
-          <li>Plat Stainless Steel</li>
+          {sideBar
+            .map((v, i) => {
+              return (
+                <div key={i}>
+                  <li>
+                    <Link href={`/product/${v.productSlug}`}>
+                      {v.productTitle}
+                    </Link>
+                  </li>
+                </div>
+              );
+            })
+            .slice(0, 6)}
         </ul>
-        <div>
-          <button className="bg-[#F5F5F5] text-[15px] h-[40px] w-[180px] rounded-lg font-bold hover:border-[1px] hover:bg-white hover:text-main transition-all">
-            Lihat Produk Lain
-          </button>
-        </div>
+        <div></div>
       </div>
       <div className="hidden lg:block">
         <Image src={Ads} alt="Iklan" />

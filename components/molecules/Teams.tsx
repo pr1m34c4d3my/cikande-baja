@@ -1,44 +1,17 @@
 import React, { useEffect, useState } from "react";
 import Team, { TeamList } from "../atoms/Team";
 
-type Props = {};
+type Team = {
+  name: string;
+  phoneNumber: string;
+  image?: any;
+};
 
-const Teams = (props: Props) => {
-  const [team, setTeam] = useState<TeamList[]>([]);
+type Props = {
+  teams: Team[];
+};
 
-  const teams = () => {
-    const list: TeamList[] = [
-      {
-        id: 1,
-        title: "Sales 1",
-        name: "Susi",
-        image: `https://media.graphassets.com/UGNUpWRA2gTkTnRN5hqw`,
-        desc: "Hubungi Sales Agent Susi untuk pertanyaan lebih lanjut",
-        handphone: "https://wa.me/628176329842",
-      },
-      {
-        id: 2,
-        title: "Sales 2",
-        name: "Yohana",
-        image: `https://media.graphassets.com/libzaieiQEaCLBu4ZubX`,
-        desc: "Hubungi Sales Yohana untuk pertanyaan lebih lanjut",
-        handphone: "https://wa.me/6281384776860",
-      },
-      {
-        id: 3,
-        title: "Sales 3",
-        name: "Najiah",
-        image: "https://media.graphassets.com/mzLVm7LQQ5KWjAE27FsQ",
-        desc: "Hubungi Sales Agent Najiah untuk pertanyaan lebih lanjut",
-        handphone: "https://wa.me/6285890311170",
-      },
-    ];
-    setTeam(list);
-  };
-
-  useEffect(() => {
-    teams();
-  }, []);
+const Teams = ({ teams }: Props) => {
   return (
     <>
       <div className="py-8 flex flex-col justify-start items-start px-4 mx-auto max-w-[1170px] lg:py-16 lg:px-6 ">
@@ -52,17 +25,15 @@ const Teams = (props: Props) => {
           </p>
         </div>
         <div className="flex flex-col lg:flex-row justify-between items-center gap-10">
-          {team.map((v: TeamList, i: number) => (
+          {teams.map((v: TeamList, i: number) => (
             <div key={i} className="flex">
               <Team
                 teams={[
                   {
                     id: v.id,
-                    title: v.title,
                     name: v.name,
                     image: v.image,
-                    desc: v.desc,
-                    handphone: v.handphone,
+                    phoneNumber: v.phoneNumber,
                   },
                 ]}
               />

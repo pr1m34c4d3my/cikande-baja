@@ -19,7 +19,7 @@ const ProductCard = ({
             <Image
               className="object-cover w-full h-full"
               src={productPhoto1.url}
-              alt="rockwoll"
+              alt={productTitle}
               width={320}
               height={250}
             />

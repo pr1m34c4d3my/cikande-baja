@@ -83,17 +83,7 @@ const SLUGLIST: string = gql`
   }
 `;
 
-export async function getStaticPaths() {
-  const { categories }: any = await graphcms.request(SLUGLIST);
-  return {
-    paths: categories.map((category: any) => ({
-      params: { slug: category.categorySlug },
-    })),
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }: any) {
+export async function getServerSideProps({ params }: any) {
   const slug: string = params.slug;
   const data: any = await graphcms.request(QUERY, { slug });
   const category: string = data.category;
@@ -104,7 +94,6 @@ export async function getStaticProps({ params }: any) {
       products,
       category,
     },
-    revalidate: 10,
   };
 }
 
@@ -159,7 +148,7 @@ const CategoryPost = ({ category, categories, products }: any) => {
       {/* HEADER end */}
 
       <section className="flex max-w-[1170px] my-10 mx-auto">
-        <SideBar />
+        <SideBar sideBar={products} />
         <div className="flex w-11/12 flex-wrap justify-center gap-5">
           {category.products.map((v: any, index: number) => {
             return (

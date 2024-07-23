@@ -32,6 +32,8 @@ import Articles from "../components/organisms/Articles";
 import FeaturedArticle from "../components/organisms/FeaturedArticle";
 import Testimonials from "../components/organisms/Testimonials";
 import Teams from "../components/molecules/Teams";
+import { api } from "../lib/graphql/api";
+import { TEAM } from "../lib/graphql/query";
 
 const graphcms = new GraphQLClient(
   "https://ap-southeast-2.cdn.hygraph.com/content/clavgu89u2wfb01t4dyh4grkz/master"
@@ -101,9 +103,10 @@ const QUERY = gql`
   }
 `;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const { categories, sliders, products, articles, featureds } =
     await graphcms.request(QUERY);
+  const { teams }: any = await api.request(TEAM);
   return {
     props: {
       categories,
@@ -111,8 +114,8 @@ export async function getStaticProps() {
       products,
       articles,
       featureds,
+      teams,
     },
-    revalidate: 100,
   };
 }
 
@@ -122,6 +125,7 @@ const Home: NextPage = ({
   products,
   articles,
   featureds,
+  teams,
 }: any) => {
   SwiperCore.use([Autoplay, Navigation, Pagination, Scrollbar, A11y]);
 
@@ -208,7 +212,7 @@ const Home: NextPage = ({
       </main>
 
       <section className="flex lg:flex-row flex-col-reverse max-w-[1170px] p-5 lg:p-0 lg:items-start mt-10 mx-auto lg:justify-between  ">
-        <SideBar />
+        <SideBar sideBar={products} />
         <div className="flex flex-wrap lg:justify-between justify-center lg:w-10/12">
           {products.map((product: any, index: number) => (
             <div key={index}>
@@ -234,7 +238,7 @@ const Home: NextPage = ({
              */}
 
       <section className="w-full bg-teamBg bg-cover bg-no-repeat bg-center bg-fixed">
-        <Teams />
+        <Teams teams={teams} />
       </section>
 
       <section className="max-w-[1170px] mx-auto my-10">
@@ -263,6 +267,7 @@ const Home: NextPage = ({
                     judul={article.articleTitle}
                     konten={article.excerpt}
                     gambar={article.articlePhoto.url}
+                    link={/artikel/ + article.articleSlug}
                   />
                 ))
               : "kosong"}

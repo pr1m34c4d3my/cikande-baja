@@ -9,6 +9,7 @@ import Link from "next/link";
 import ArticleCard from "../../components/molecules/ArticleCard";
 import { api } from "../../lib/graphql/api";
 import { ARTICLE } from "../../lib/graphql/query";
+import Image from "next/image";
 
 type Props = {};
 
@@ -80,22 +81,27 @@ const QUERY = gql`
   }
 `;
 
-export async function getServerSideProps() {
-  const { categories, sliders, products, articles, featureds } =
-    await graphcms.request(QUERY);
+export async function getServerSideProps({ params }: any) {
+  const slug: any = params.slug;
+  const { article } = await api.request(ARTICLE, { slug });
+  const { categories, sliders, products, featureds } = await graphcms.request(
+    QUERY
+  );
 
   return {
     props: {
       categories,
       sliders,
       products,
-      articles,
+      article,
       featureds,
     },
   };
 }
 
-const index = ({ categories, sliders, products, articles, featureds }: any) => {
+const index = ({ categories, sliders, products, article, featureds }: any) => {
+  const rich = article.contentArtikel.html;
+  const replaced = rich.replace(/\|/g, " <br /> <br />");
   return (
     <div className=" bg-mainBg">
       <Head>
@@ -150,19 +156,25 @@ const index = ({ categories, sliders, products, articles, featureds }: any) => {
 
       {/* HEADER end */}
 
-      <main className="w-full flex flex-col lg:flex-row justify-start p-10 flex-wrap gap-10">
-        {articles.map((v: any, i: any) => {
-          return (
-            <div key={i}>
-              <ArticleCard
-                articleTitle={v.articleTitle}
-                articlePhoto={v.articlePhoto}
-                articleSlug={v.articleSlug}
-                excerpt={v.excerpt}
-              />
-            </div>
-          );
-        })}
+      <main className="w-full flex flex-col  justify-start items-center p-5 lg:p-10">
+        <h1 className="font-bold text-2xl">{article.articleTitle}</h1>
+
+        <div className="lg:w-6/12 w-full lg:p-5 p-0">
+          <Image
+            src={article.articlePhoto.url}
+            alt="Thumbnail"
+            width={1000}
+            height={1000}
+          />
+        </div>
+
+        <div className="lg:w-8/12 w-full lg:p-5 p-0">
+          <span
+            dangerouslySetInnerHTML={{
+              __html: replaced,
+            }}
+          ></span>
+        </div>
       </main>
 
       <div className="bg-[#575757]">
