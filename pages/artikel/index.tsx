@@ -27,7 +27,7 @@ const QUERY = gql`
         }
       }
     }
-    articles(last: 3) {
+    articles(last: 100) {
       id
       excerpt
       articleTitle
